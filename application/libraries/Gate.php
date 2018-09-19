@@ -16,14 +16,18 @@ class Gate {
 	/*jika dia tidak super admin, alihkan ke halaman admin*/
 	public function role_s_admin()
 	{
-		if ($this->CI->session->userdata('tipe')!='super_admin') 
-			redirect('Dashboard_admin');
+		if ($this->CI->session->userdata('tipe')!='super_admin') {
+			echo '<script>alert("Anda tidak berhak mengakses halaman ini");</script>';
+			redirect('Dashboard_admin','refresh');
+		}
 	}
 	/*jika dia tidak admin, alihkan ke halaman super_admin*/
 	public function role_admin()
 	{
-		if ($this->CI->session->userdata('tipe')!='admin') 
-			redirect('Dashboard_super');
+		if ($this->CI->session->userdata('tipe')!='admin') {
+			echo '<script>alert("Anda tidak berhak mengakses halaman ini");</script>';
+			redirect('Dashboard_super','refresh');
+		}
 	}
 
 }
