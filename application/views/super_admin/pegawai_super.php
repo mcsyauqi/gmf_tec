@@ -10,7 +10,7 @@ include 'navbar.php';
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<a href="<?php echo site_url('Pegawai/add_pegawai');?>">
+							<a href="<?php echo site_url('super_admin/Pegawai/add_pegawai');?>">
 								<button class="btn btn-info">Add Employee</button></a>
 							</div>
 							<div class="container" style="overflow-x: scroll;">
@@ -45,8 +45,8 @@ include 'navbar.php';
 												echo date("d-M-Y",$tgl_bener);?></td>
 												<td><?php echo $peg->jabatan;?></td>
 												<td><?php echo $peg->pendidikan;?></td>
-												<td><a href="edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
-												<td><a id="hasil" href="delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+												<td><a href="pegawai/edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
+												<td><a id="hasil" href="pegawai/delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
 
 											</tr>
 										<?php }

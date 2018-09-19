@@ -21,7 +21,7 @@ include 'navbar.php';
 						}
 
 						?>
-						<form method="post" action="<?php echo site_url('Training/update_training')?>">
+						<form method="post" action="<?php echo site_url('super_admin/Training/update_training')?>">
 						<div class="card-body">
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="form_employee"><h7><strong>No. Pegawai</strong></h7></label>
