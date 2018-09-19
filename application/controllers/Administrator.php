@@ -7,6 +7,8 @@ class Administrator extends CI_Controller {
 		parent:: __construct();
 		$this->load->model('Db_user');
 		$this->load->model('Db_admin');
+		$this->gate->cek_login();
+		$this->gate->role_s_admin();
 	}
 	public function index()
 	{
