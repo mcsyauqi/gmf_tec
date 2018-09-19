@@ -20,7 +20,7 @@ include 'navbar.php';
 						}
 
 						?>
-						<form method="post" action="<?php echo site_url('Pegawai/update_pegawai')?>">
+						<form method="post" action="<?php echo site_url('super_admin/Pegawai/update_pegawai')?>">
 						<div class="card-body">
 							<div class="form-group">
 								<label for="form_employee">ID</label>

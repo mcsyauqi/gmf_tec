@@ -14,7 +14,7 @@ include 'navbar.php';
 						<div class="card-header">
 							<div class="card-title">Add Employee</div>
 						</div>
-						<form method="post" action="<?php echo site_url('Pegawai/input_pegawai')?>">
+						<form method="post" action="<?php echo site_url('super_admin/Pegawai/input_pegawai')?>">
 							<div class="card-body">
 								<div class="form-group">
 									<label for="form_employee">ID</label>

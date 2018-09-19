@@ -7,8 +7,6 @@ class Pegawai extends CI_Controller {
 		parent:: __construct();
 		$this->load->model('Db_pegawai');
 		$this->load->model('Db_training');
-		$this->gate->cek_login();
-		$this->gate->role_s_admin();
 	}
 
 	public function index()
@@ -18,74 +16,7 @@ class Pegawai extends CI_Controller {
 		$this->template->load('static','pegawai',$data);
 	}
 
-	public function pegawai_super()
-	{
-		$data['pegawai'] = $this->Db_pegawai->getAll('pegawai');
-		$this->template->load('super_admin/static','super_admin/pegawai_super',$data);
-	}
-
 	
-	public function add_pegawai()
-	{
-		$this->template->load('super_admin/static','super_admin/add_pegawai');
-	}
-
-	public function input_pegawai()
-	{
-		$data = array(
-			'no_peg' => $this->input->post('no_peg'),
-			'nama_peg' => $this->input->post('nama_peg'),
-			'dinas' => $this->input->post('dinas'),
-			'bidang' => $this->input->post('bidang'),
-			'unit' => $this->input->post('unit'),
-			'jabatan' => $this->input->post('jabatan'),
-			'pendidikan' => $this->input->post('pendidikan'),
-			'tgl_masuk' => $this->input->post('tgl_masuk'),
-			'tgl_lahir' => $this->input->post('tgl_lahir'),
-		);
-		$dta = array('no_peg' => $this->input->post('no_peg'));
-
-		$this->Db_pegawai->input_pegawai($data);
-		$this->Db_training->input_training($dta);
-
-		redirect (site_url('Pegawai/pegawai_super'));
-	}
-	
-	public function delete_pegawai()
-	{
-		$id = array('no_peg' => $this->uri->segment(3));
-		$this->Db_pegawai->delete_pegawai($id);
-		$this->Db_training->delete_training($id);
-		redirect (site_url('Pegawai/pegawai_super'));
-	}
-
-	public function edit_pegawai()
-	{
-		$id = $this->uri->segment(3);
-		$data['pegawai'] = $this->Db_pegawai->edit_pegawai($id);
-		$this->template->load('super_admin/static','super_admin/edit_pegawai',$data);
-	}
-
-	public function update_pegawai()
-	{
-		$data = array(
-			'no_peg' => $this->input->post('no_peg'),
-			'nama_peg' => $this->input->post('nama_peg'),
-			'dinas' => $this->input->post('dinas'),
-			'bidang' => $this->input->post('bidang'),
-			'unit' => $this->input->post('unit'),
-			'jabatan' => $this->input->post('jabatan'),
-			'pendidikan' => $this->input->post('pendidikan'),
-			'tgl_masuk' => $this->input->post('tgl_masuk'),
-			'tgl_lahir' => $this->input->post('tgl_lahir'),
-		);
-		$id = $this->input->post('no_peg');
-
-		$this->Db_pegawai->update_pegawai($data, $id);
-
-		redirect (site_url('Pegawai/pegawai_super'));
-	}
-
 	public function edit()
 	{
 		$this->load->model('Db_pegawai');

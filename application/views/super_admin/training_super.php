@@ -523,7 +523,7 @@ $total_peg = mysqli_num_rows($peg);
 														<div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $total;?>%" aria-valuenow="<?php echo $total;?>" aria-valuemin="0" aria-valuemax="100"><?php echo $total;?>%</div>
 													</div></p>
 												</td>
-												<td><a href="edit_training/<?php echo $train->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
+												<td><a href="training/edit_training/<?php echo $train->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
 											</tr>
 										<?php }
 										?>

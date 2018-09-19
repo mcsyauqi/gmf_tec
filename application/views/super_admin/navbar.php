@@ -33,13 +33,13 @@
 						</a>
 					</li>
 					<li class="nav-item <?php if($page_now=='training_super') echo 'active';?>">
-						<a href="<?php echo site_url('Training/training_super');?>">
+						<a href="<?php echo site_url('super_admin/Training');?>">
 							<i class="la la-certificate"></i>
 							<p>Training Compliance</p>
 						</a>
 					</li>
 					<li class="nav-item <?php if($page_now=='pegawai_super') echo 'active';?>">
-						<a href="<?php echo site_url('Pegawai/pegawai_super');?>" onclick="">
+						<a href="<?php echo site_url('super_admin/Pegawai');?>" onclick="">
 							<i class="la la-group"></i>
 							<p>Employees</p>
 						</a>
