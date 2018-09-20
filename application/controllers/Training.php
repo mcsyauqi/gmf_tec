@@ -12,7 +12,7 @@ class Training extends CI_Controller {
 	{
 		$data['pegawai'] = $this->Db_pegawai->getAll('pegawai');
 		$data['training'] = $this->Db_training->getAll('training');		
-		$this->template->load('static','training',$data);
+		$this->template->load('v_static','v_training',$data);
 	}
 
 }

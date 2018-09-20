@@ -12,7 +12,7 @@ class Logout extends CI_Controller {
 	{
 	
 		$this->session->sess_destroy();
-		redirect('Dashboard','refresh');
+		redirect('dashboard','refresh');
 		
 		
 	}

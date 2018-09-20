@@ -8,21 +8,21 @@ class Login extends CI_Controller{
 		$this->load->model('Db_login');
 
 	}
-
+ 	//ngecek udah login belum, kalau sudah kembali ke halaman admin
 	public function index()
 	{
-		if ($this->session->userdata('isLogin')==TRUE) { //ngecek udah login belum, kalau sudah kembali ke halaman admin
+		if ($this->session->userdata('isLogin')==TRUE) {
 
 			if ($_SESSION['tipe']=='super_admin') {
-				redirect('super_admin/Dashboard_super');
+				redirect('super_admin/dashboard_super');
 			}
 
 			elseif ($_SESSION['tipe']=='admin'){
-				redirect('admin/Dashboard_admin');
+				redirect('admin/dashboard_admin');
 			}
 			
 		} else {
-			$this->load->view('login'); 
+			$this->load->view('v_login'); 
 		} 
 	}
 
@@ -45,7 +45,7 @@ class Login extends CI_Controller{
 
 				));
 
-					redirect('auper_admin/Dashboard_super');
+					redirect('super_admin/dashboard_super');
 				}
 
 				elseif ($cek->tipe=='admin'){
@@ -60,15 +60,14 @@ class Login extends CI_Controller{
 
 				));
 
-					redirect('admin/Dashboard_admin');
+					redirect('admin/dashboard_admin');
 				}	
 
 			}	
 		}
 		else {
 			$this->session->set_flashdata('gagallogin','Maaf, Username atau Password yang anda masukkan salah');
-			redirect('Login');
-			/*$this->load->view('login');*/
+			redirect('login');
 		}
 
 	}

@@ -18,7 +18,7 @@ class Gate {
 	{
 		if ($this->CI->session->userdata('tipe')!='super_admin') {
 			echo '<script>alert("Anda tidak berhak mengakses halaman ini");</script>';
-			redirect('Dashboard_admin','refresh');
+			redirect('admin/Dashboard_admin','refresh');
 		}
 	}
 	/*jika dia tidak admin, alihkan ke halaman super_admin*/
@@ -26,7 +26,7 @@ class Gate {
 	{
 		if ($this->CI->session->userdata('tipe')!='admin') {
 			echo '<script>alert("Anda tidak berhak mengakses halaman ini");</script>';
-			redirect('Dashboard_super','refresh');
+			redirect('super_admin/Dashboard_super','refresh');
 		}
 	}
 
