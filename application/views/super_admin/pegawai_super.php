@@ -2,6 +2,11 @@
 $page_now="pegawai_super";
 include 'navbar.php';
 ?>
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Apakah anda yakin ingin menghapus?');
+}
+</script>
 <div class="main-panel">
 	<div class="content">
 		<div class="container-fluid">
@@ -46,7 +51,7 @@ include 'navbar.php';
 												<td><?php echo $peg->jabatan;?></td>
 												<td><?php echo $peg->pendidikan;?></td>
 												<td><a href="edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
-												<td><a id="hasil" href="delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+												<td><a href="delete_pegawai/<?php echo $peg->no_peg;?>" onclick="return checkDelete()"><i class="la la-remove" style="font-size: 20px"></i></a></td>
 
 											</tr>
 										<?php }

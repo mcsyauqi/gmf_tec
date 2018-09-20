@@ -255,221 +255,6 @@ $sisa_training_comp=100-$training_comp;
 </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body" style="background-color:#3ea71e">
-        <div class="row">
-         <div class="col-5">
-          <div class="icon-big text-center">
-           <i class="la la-cubes" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
-         </div>
-       </div>
-       <div class="numbers" style="margin-left: -17%">
-         <h4 class="card-title" style="color: #ffffff">Active Working Period</h4>
-         <p class="card-category" style="color: #ffffff">Engineering Services</p>
-       </div>
-     </div>
-   </div>
-   <div class="card-header">
-    <div id="ro_container" style="min-width: 100%; height: 300px; margin: 0 auto"></div>
-
-    <script type="text/javascript">
-
-      Highcharts.chart('ro_container', {
-        chart: {
-          type: 'column'
-        },
-    // title: {
-    //     text: 'World\'s largest cities per 2017'
-    // },
-    xAxis: {
-      type: 'category',
-      labels: {
-        rotation: -45,
-        style: {
-          fontSize: '16 px',
-          fontFamily: 'Verdana, sans-serif'
-        }
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Jumlah orang'
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    tooltip: {
-      pointFormat: 'Jumlah orang: <b>{point.y}</b>'
-    },
-    series: [{
-      name: 'Population',
-      color:'#8085e9',
-      data: [
-      ['0-5 Tahun', <?php echo $masa0; ?>],
-      ['6-10 Tahun', <?php echo $masa6; ?>],
-      ['11-20 Tahun', <?php echo $masa11; ?>],
-      ['21-35 Tahun', <?php echo $masa21; ?>]
-      ],
-      dataLabels: {
-        enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
-            format: '{point.y:.0f}', // one decimal
-            y: 10, // 10 pixels down from the top
-            style: {
-              fontSize: '15px',
-              fontFamily: 'Verdana, sans-serif'
-            }
-          }
-        }]
-      });
-    </script>
-  </div>
-</div>
-</div>
-
-<div class="col-md-4">
-  <div class="card">
-    <div class="card-body" style="background-color:#239ce5">
-      <div class="row">
-       <div class="col-5">
-        <div class="icon-big text-center">
-         <i class="la la-users" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
-       </div>
-     </div>
-     <div class="numbers" style="margin-left: -17%">
-       <h4 class="card-title" style="color: #ffffff">Manpower</h4>
-       <p class="card-category" style="color: #ffffff">Engineering Services</p>
-     </div>
-   </div>
- </div>
- <div class="card-header">
-  <div id="containers" style="min-width: 100%; height: 300px; max-width:auto; margin: 0 auto; margin-left:-15px"></div>
-  <script type="text/javascript">
-
-    Highcharts.chart('containers', {
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-      },
-      tooltip: {
-        pointFormat: '{series.name}: <b>{point.y} Orang</b>'
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-            style: {
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-            }
-          }
-        }
-      },
-      series: [{
-        name: 'Jumlah',
-        colorByPoint: true,
-        data: [{
-          name: 'DE',
-          y: <?php echo $jumlah_de; ?>,
-        }, {
-          name: 'Expert',
-          y: <?php echo $jumlah_ee; ?>
-        }, {
-          name: 'GM',
-          y: <?php echo $jumlah_gm; ?>
-        }, {
-          name: 'Manager',
-          y: <?php echo $jumlah_m; ?>
-        }, {
-          name: 'Secretary',
-          y: <?php echo $jumlah_sec; ?>
-        }, {
-          name: 'SADO',
-          y: <?php echo $jumlah_sado; ?>
-        }, {
-          name: 'SDE',
-          y: <?php echo $jumlah_sde; ?>
-        }, {
-          name: 'STPO',
-          y: <?php echo $jumlah_stpo; ?>
-        }, {
-          name: 'TPO',
-          y: <?php echo $jumlah_tpo; ?>
-        }, {
-          name: 'Trainee',
-          y: <?php echo $jumlah_tde; ?>
-        }, {
-          name: 'VP',
-          y: <?php echo $jumlah_vp; ?>
-        }]
-      }]
-    });
-  </script>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-  <div class="card">
-    <div class="card-body" style="background-color:#e13232">
-      <div class="row">
-       <div class="col-5">
-        <div class="icon-big text-center">
-         <i class="la la-share-alt" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
-       </div>
-     </div>
-     <div class="numbers" style="margin-left: -17%">
-       <h4 class="card-title" style="color: #ffffff">Generation</h4>
-       <p class="card-category" style="color: #ffffff">Engineering Services</p>
-     </div>
-   </div>
- </div>
- <div class="card-header">
-   <div id="bar_container" style="min-width: 220px; max-width: 600px; height: 300px; margin: 0 auto"></div>
-
-
-
-   <script type="text/javascript">
-
-    Highcharts.chart('bar_container', {
-      chart: {
-        type: 'bar'
-      },
-      xAxis: {
-        categories: ['Baby Boomers', 'X Generation', 'Y Geneartion','Z Generation']
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: '<?php echo "Total Pekerja: ".$total_peg." Orang"?>'
-        }
-      },
-      plotOptions: {
-        series: {
-          stacking: 'normal'
-        }
-      },
-      series: [{
-        name: 'Kelompok usia kerja',
-        color:'#39a1a0',
-        data: [<?php echo $baby?>, <?php echo $gen_x?>, <?php echo $gen_y?>, <?php echo $gen_z?>],
-        dataLabels: {
-          enabled: false
-        }
-      }],
-    });
-  </script>
-</div>
-</div>
-</div>
 <div class="col-md-4">
   <div class="card">
     <div class="card-body" style="background-color:#ff6e00">
@@ -704,6 +489,299 @@ Highcharts.chart('container', {
   }
 });
 </script>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+                <div class="card">
+                  <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
+                    <h4 class="card-title" style="color: white">Training Reminder</h4>
+                    <p class="card-category" style="color: white">Human Factor</p>
+                  </div>
+                  <div class="card-body" >
+                    <table class="table table-head table-striped table-hover"  >
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nama</th>
+                          <th scope="col">Unit</th>
+                          <th scope="col">HF Due Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+</div>
+<div class="col-md-6">
+                <div class="card">
+                  <div class="card-header" style="background-color: #395c28; border-radius: 10px">
+                    <h4 class="card-title" style="color: white">Training Reminder</h4>
+                    <p class="card-category" style="color: white">CASR</p>
+                  </div>
+                  <div class="card-body" >
+                    <table class="table table-head table-striped table-hover"  >
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nama</th>
+                          <th scope="col">Unit</th>
+                          <th scope="col">CASR Due Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-body" style="background-color:#3ea71e">
+        <div class="row">
+         <div class="col-5">
+          <div class="icon-big text-center">
+           <i class="la la-cubes" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+         </div>
+       </div>
+       <div class="numbers" style="margin-left: -17%">
+         <h4 class="card-title" style="color: #ffffff">Active Working Period</h4>
+         <p class="card-category" style="color: #ffffff">Engineering Services</p>
+       </div>
+     </div>
+   </div>
+   <div class="card-header">
+    <div id="ro_container" style="min-width: 100%; height: 300px; margin: 0 auto"></div>
+
+    <script type="text/javascript">
+
+      Highcharts.chart('ro_container', {
+        chart: {
+          type: 'column'
+        },
+    // title: {
+    //     text: 'World\'s largest cities per 2017'
+    // },
+    xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: '16 px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Jumlah orang'
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      pointFormat: 'Jumlah orang: <b>{point.y}</b>'
+    },
+    series: [{
+      name: 'Population',
+      color:'#8085e9',
+      data: [
+      ['0-5 Tahun', <?php echo $masa0; ?>],
+      ['6-10 Tahun', <?php echo $masa6; ?>],
+      ['11-20 Tahun', <?php echo $masa11; ?>],
+      ['21-35 Tahun', <?php echo $masa21; ?>]
+      ],
+      dataLabels: {
+        enabled: true,
+        rotation: -90,
+        color: '#FFFFFF',
+        align: 'right',
+            format: '{point.y:.0f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+              fontSize: '15px',
+              fontFamily: 'Verdana, sans-serif'
+            }
+          }
+        }]
+      });
+    </script>
+  </div>
+</div>
+</div>
+
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-body" style="background-color:#239ce5">
+      <div class="row">
+       <div class="col-5">
+        <div class="icon-big text-center">
+         <i class="la la-users" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+       </div>
+     </div>
+     <div class="numbers" style="margin-left: -17%">
+       <h4 class="card-title" style="color: #ffffff">Manpower</h4>
+       <p class="card-category" style="color: #ffffff">Engineering Services</p>
+     </div>
+   </div>
+ </div>
+ <div class="card-header">
+  <div id="containers" style="min-width: 100%; height: 300px; max-width:auto; margin: 0 auto; margin-left:-15px"></div>
+  <script type="text/javascript">
+
+    Highcharts.chart('containers', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.y} Orang</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            style: {
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            }
+          }
+        }
+      },
+      series: [{
+        name: 'Jumlah',
+        colorByPoint: true,
+        data: [{
+          name: 'DE',
+          y: <?php echo $jumlah_de; ?>,
+        }, {
+          name: 'Expert',
+          y: <?php echo $jumlah_ee; ?>
+        }, {
+          name: 'GM',
+          y: <?php echo $jumlah_gm; ?>
+        }, {
+          name: 'Manager',
+          y: <?php echo $jumlah_m; ?>
+        }, {
+          name: 'Secretary',
+          y: <?php echo $jumlah_sec; ?>
+        }, {
+          name: 'SADO',
+          y: <?php echo $jumlah_sado; ?>
+        }, {
+          name: 'SDE',
+          y: <?php echo $jumlah_sde; ?>
+        }, {
+          name: 'STPO',
+          y: <?php echo $jumlah_stpo; ?>
+        }, {
+          name: 'TPO',
+          y: <?php echo $jumlah_tpo; ?>
+        }, {
+          name: 'Trainee',
+          y: <?php echo $jumlah_tde; ?>
+        }, {
+          name: 'VP',
+          y: <?php echo $jumlah_vp; ?>
+        }]
+      }]
+    });
+  </script>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-body" style="background-color:#e13232">
+      <div class="row">
+       <div class="col-5">
+        <div class="icon-big text-center">
+         <i class="la la-share-alt" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+       </div>
+     </div>
+     <div class="numbers" style="margin-left: -17%">
+       <h4 class="card-title" style="color: #ffffff">Generation</h4>
+       <p class="card-category" style="color: #ffffff">Engineering Services</p>
+     </div>
+   </div>
+ </div>
+ <div class="card-header">
+   <div id="bar_container" style="min-width: 220px; max-width: 600px; height: 300px; margin: 0 auto"></div>
+
+
+
+   <script type="text/javascript">
+
+    Highcharts.chart('bar_container', {
+      chart: {
+        type: 'bar'
+      },
+      xAxis: {
+        categories: ['Baby Boomers', 'X Generation', 'Y Geneartion','Z Generation']
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: '<?php echo "Total Pekerja: ".$total_peg." Orang"?>'
+        }
+      },
+      plotOptions: {
+        series: {
+          stacking: 'normal'
+        }
+      },
+      series: [{
+        name: 'Kelompok usia kerja',
+        color:'#39a1a0',
+        data: [<?php echo $baby?>, <?php echo $gen_x?>, <?php echo $gen_y?>, <?php echo $gen_z?>],
+        dataLabels: {
+          enabled: false
+        }
+      }],
+    });
+  </script>
 </div>
 </div>
 </div>
