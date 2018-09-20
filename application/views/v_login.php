@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/login/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/login/css/form-elements.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/login/css/style.css">
+    <link rel="shortcut icon" href="<?php echo base_url();?>/assets/img/favicon.ico" type="image/x-icon"/>
 
 
     <!-- Favicon and touch icons -->

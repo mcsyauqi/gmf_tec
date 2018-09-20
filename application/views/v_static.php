@@ -13,7 +13,7 @@
 	<script src="<?php echo base_url();?>assets/js/code/modules/drilldown.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/dataTable/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/dataTable/css/dataTables.bootstrap4.css">
-
+	<link rel="shortcut icon" href="<?php echo base_url();?>/assets/img/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
 	<!-- Main Header -->
