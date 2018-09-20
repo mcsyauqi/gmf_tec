@@ -22,7 +22,7 @@ include 'navbar.php';
 											<h4 class="modal-title" id="myModalLabel" style="position: absolute;">Add Admin </h4>    
 										</div>
 										<div class="modal-body">
-											<form action="<?php echo site_url('Administrator/input_admin')?>" method="post">
+											<form action="<?php echo site_url('super_admin/Administrator/input_admin')?>" method="post">
 												<div class="form-group">
 													<label for="largeInput" style="margin-right: 95%">Nomor</label>
 													<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan nomor pegawai" name="no_peg">
@@ -76,7 +76,7 @@ include 'navbar.php';
 											<td><?php echo $us->password;?></td>
 											<td><i class="show-modal la la-edit" style="font-size:20px" data-no="<?php echo $us->no_peg;?>" data-peg="<?php echo $us->nama_peg;?>" data-user="<?php echo $us->username;?>" data-pass="<?php echo $us->password;?>"></i></td>
 
-											<td><a id="hasil" href="Administrator/delete_admin/<?php echo $us->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+											<td><a id="hasil" href="<?php echo site_url('super_admin/Administrator/delete_admin/'.$us->no_peg); ?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
 										</tr>
 									<?php }
 									?>
@@ -134,7 +134,7 @@ include 'navbar.php';
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			<div class="modal-body">
-				<form action="<?php echo site_url('Administrator/update_admin')?>" method="post">
+				<form action="<?php echo site_url('super_admin/Administrator/update_admin')?>" method="post">
 					<div class="form-group">
 						<label for="largeInput" style="margin-right: 95%">ID</label>
 						<input type="text" name="no_peg"  class="form-control form-control" id="no_peg" placeholder="Masukkan ID">

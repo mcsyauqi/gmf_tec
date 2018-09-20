@@ -14,11 +14,11 @@ class Login extends CI_Controller{
 		if ($this->session->userdata('isLogin')==TRUE) { //ngecek udah login belum, kalau sudah kembali ke halaman admin
 
 			if ($_SESSION['tipe']=='super_admin') {
-				redirect('Dashboard_super');
+				redirect('super_admin/Dashboard_super');
 			}
 
 			elseif ($_SESSION['tipe']=='admin'){
-				redirect('Dashboard_admin');
+				redirect('admin/Dashboard_admin');
 			}
 			
 		} else {
@@ -45,7 +45,7 @@ class Login extends CI_Controller{
 
 				));
 
-					redirect('Dashboard_super');
+					redirect('auper_admin/Dashboard_super');
 				}
 
 				elseif ($cek->tipe=='admin'){
@@ -60,7 +60,7 @@ class Login extends CI_Controller{
 
 				));
 
-					redirect('Dashboard_admin');
+					redirect('admin/Dashboard_admin');
 				}	
 
 			}	

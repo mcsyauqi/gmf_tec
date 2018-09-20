@@ -30,17 +30,21 @@ class Administrator extends CI_Controller {
 
 	public function input_admin()
 	{
-		$data = array(
-			'no_peg' => $this->input->post('no_peg'),
-			'tipe' => $this->input->post('tipe'),
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
-		);
-
-		$this->Db_admin->input_admin($data);
-		$this->Db_training->input_training($data);
-
-		redirect (site_url('Administrator'));
+		$cek = $this->db->select('no_peg')->from('pegawai')
+      ->where('no_peg',$this->input->post('no_peg'))->get()->row();
+		if ($cek->no_peg) {
+			$data = array(
+				'no_peg' => $this->input->post('no_peg'),
+				'tipe' => $this->input->post('tipe'),
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password'),
+			);
+			$this->Db_admin->input_admin($data);
+			redirect (site_url('super_admin/Administrator'));
+		} else {
+			echo '<script>alert("Number of Employee Not Avalaible");</script>';
+			redirect (site_url('super_admin/Administrator'),'refresh');
+		}
 	}
 
 	public function update_admin()
@@ -48,7 +52,6 @@ class Administrator extends CI_Controller {
 		$id = $this->input->post('no_peg');
 		$data = array(
 			'no_peg' => $this->input->post('no_peg'),
-			// 'nama_peg' => $this->input->post('nama_peg'),
 			'username' => $this->input->post('username'),
 			'password' => $this->input->post('password'),
 
@@ -56,13 +59,13 @@ class Administrator extends CI_Controller {
 
 		$this->Db_admin->update_admin($data, $id);
 
-		redirect (site_url('Administrator'));
+		redirect (site_url('super_admin/Administrator'));
 	}
 
 	public function delete_admin(){
-		$id = array('no_peg' => $this->uri->segment(3));
+		$id = array('no_peg' => $this->uri->segment(4));
 		$this->Db_admin->delete_admin($id);
-		redirect (site_url('Administrator'));
+		redirect (site_url('super_admin/Administrator'));
 	}
 
 }
