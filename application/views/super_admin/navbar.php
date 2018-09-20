@@ -27,7 +27,7 @@
 				</div>
 				<ul class="nav">
 					<li class="nav-item <?php if($page_now=='dashboard_super') echo 'active';?>" >
-						<a href="<?php echo site_url('Dashboard_super');?>">
+						<a href="<?php echo site_url('super_admin/Dashboard_super');?>">
 							<i class="la la-dashboard" onclick="myFunction()"></i>
 							<p>Dashboard</p>
 						</a>

@@ -14,7 +14,7 @@ class Dashboard_admin extends CI_Controller {
 		if ($this->session->userdata('isLogin')== TRUE) {
 					
 				if ($_SESSION['tipe']=='super_admin') {
-					redirect('Dashboard_super');
+					redirect('super_admin/Dashboard_super');
 				}
 
 				elseif ($_SESSION['tipe']=='admin'){

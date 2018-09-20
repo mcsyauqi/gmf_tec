@@ -17,13 +17,13 @@ class Gate {
 	public function role_s_admin()
 	{
 		if ($this->CI->session->userdata('tipe')!='super_admin') 
-			redirect('Dashboard_admin');
+			redirect('admin/Dashboard_admin');
 	}
 	/*jika dia tidak admin, alihkan ke halaman super_admin*/
 	public function role_admin()
 	{
 		if ($this->CI->session->userdata('tipe')!='admin') 
-			redirect('Dashboard_super');
+			redirect('super_admin/Dashboard_super');
 	}
 
 }
