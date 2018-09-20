@@ -5,13 +5,13 @@ class Training extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_pegawai');
-		$this->load->model('Db_training');
+		$this->load->model('m_pegawai');
+		$this->load->model('m_training');
 	}
 	public function index()
 	{
-		$data['pegawai'] = $this->Db_pegawai->getAll('pegawai');
-		$data['training'] = $this->Db_training->getAll('training');		
+		$data['pegawai'] = $this->m_pegawai->getAll('pegawai');
+		$data['training'] = $this->m_training->getAll('training');		
 		$this->template->load('v_static','v_training',$data);
 	}
 

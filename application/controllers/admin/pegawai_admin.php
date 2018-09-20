@@ -5,8 +5,8 @@ class Pegawai_admin extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_pegawai');
-		$this->load->model('Db_training');
+		$this->load->model('m_pegawai');
+		$this->load->model('m_training');
 		$this->gate->cek_login();
 		$this->gate->role_admin();
 
@@ -16,7 +16,7 @@ class Pegawai_admin extends CI_Controller {
 	{
 		$table='pegawai';
 		$par = array('bidang' =>$this->session->userdata('bidang')); 
-		$data['pegawai'] = $this->Db_pegawai->get_peg_adm($table,$par);
+		$data['pegawai'] = $this->m_pegawai->get_peg_adm($table,$par);
 		$this->template->load('admin/v_static_admin','admin/v_pegawai_admin',$data);
 	}
 
@@ -28,7 +28,7 @@ class Pegawai_admin extends CI_Controller {
 	public function edit_peg_admin()
 	{
 		$id = $this->uri->segment(4);
-		$data['pegawai'] = $this->Db_pegawai->edit_pegawai($id);
+		$data['pegawai'] = $this->m_pegawai->edit_pegawai($id);
 		$this->template->load('admin/v_static_admin','admin/v_edit_peg_admin',$data);
 	}
 
@@ -47,8 +47,8 @@ class Pegawai_admin extends CI_Controller {
 		);
 		$dta = array('no_peg' => $this->input->post('no_peg'));
 
-		$this->Db_pegawai->input_pegawai($data);
-		$this->Db_training->input_training($dta);
+		$this->m_pegawai->input_pegawai($data);
+		$this->m_training->input_training($dta);
 
 		redirect (site_url('admin/pegawai_admin'));
 	}
@@ -56,7 +56,7 @@ class Pegawai_admin extends CI_Controller {
 	public function delete_peg_admin()
 	{
 		$id = array('no_peg' => $this->uri->segment(4));
-		$this->Db_pegawai->delete_pegawai($id);
+		$this->m_pegawai->delete_pegawai($id);
 		redirect (site_url('admin/pegawai_admin'));
 	}
 
@@ -75,7 +75,7 @@ class Pegawai_admin extends CI_Controller {
 		);
 		$id = $this->input->post('no_peg');
 
-		$this->Db_pegawai->update_pegawai($data, $id);
+		$this->m_pegawai->update_pegawai($data, $id);
 
 		redirect (site_url('admin/pegawai_admin'));
 	}

@@ -5,7 +5,7 @@ class Login extends CI_Controller{
 	
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_login');
+		$this->load->model('m_login');
 
 	}
  	//ngecek udah login belum, kalau sudah kembali ke halaman admin
@@ -30,7 +30,7 @@ class Login extends CI_Controller{
 		include 'Koneksi.php';
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$cek = $this->Db_login->cek_user($username, $password);
+		$cek = $this->m_login->cek_user($username, $password);
 		if (count($cek) > 0 ) { 
 			$cek_type = $this->db->get_where('user', array('username'=> $username,'password'=>$password));
 			foreach ($cek_type->result() as $cek) {

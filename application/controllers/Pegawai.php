@@ -5,28 +5,28 @@ class Pegawai extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_pegawai');
-		$this->load->model('Db_training');
+		$this->load->model('m_pegawai');
+		$this->load->model('m_training');
 	}
 
 	public function index()
 	{
-		$data['pegawai'] = $this->Db_pegawai->getAll('pegawai');
-		$data['training'] = $this->Db_training->getAll('training');
+		$data['pegawai'] = $this->m_pegawai->getAll('pegawai');
+		$data['training'] = $this->m_training->getAll('training');
 		$this->template->load('v_static','v_pegawai',$data);
 	}
 
 	
 	public function edit()
 	{
-		$this->load->model('Db_pegawai');
+		$this->load->model('m_pegawai');
 		$no_peg = $this->uri->segment(4);
 		$data['uname'] = $this->uri->segment(3);
 		$username = $data['uname'];
-		$data['profil'] = $this->Db_pegawai->loadprofil($username);
-		$data['tipe'] = $this->Db_pegawai->tipe($username);
-		$data['unit'] = $this->Db_pegawai->loadunit();
-		$data['pegawai'] = $this->Db_pegawai->getpegawai($no_peg)->result();
+		$data['profil'] = $this->m_pegawai->loadprofil($username);
+		$data['tipe'] = $this->m_pegawai->tipe($username);
+		$data['unit'] = $this->m_pegawai->loadunit();
+		$data['pegawai'] = $this->m_pegawai->getpegawai($no_peg)->result();
 		foreach($data['tipe'] as $record)
 		{
 			$tipe = $record->tipe;

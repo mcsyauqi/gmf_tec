@@ -5,26 +5,26 @@ class Administrator_super extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_user');
-		$this->load->model('Db_admin');
+		$this->load->model('m_user');
+		$this->load->model('m_admin');
 		$this->gate->cek_login();
 		$this->gate->role_s_admin();
 	}
 	public function index()
 	{
-		$data['user'] = $this->Db_user->getAll();
+		$data['user'] = $this->m_user->getAll();
 		$this->template->load('super_admin/v_static_super','super_admin/v_administrator_super', $data);
 	}
 
 	public function Add_admin()
 	{
-		$data['user'] = $this->Db_user->getAll('user');
+		$data['user'] = $this->m_user->getAll('user');
 		$this->template->load('super_admin/v_static_super','super_admin/v_add_admin_super', $data);
 	}
 
 	public function Edit_admin()
 	{
-		$data['user'] = $this->Db_user->getAll('user');
+		$data['user'] = $this->m_user->getAll('user');
 		$this->template->load('super_admin/v_static_super','super_admin/v_edit_admin_super', $data);
 	}
 
@@ -39,7 +39,7 @@ class Administrator_super extends CI_Controller {
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
 			);
-			$this->Db_admin->input_admin($data);
+			$this->m_admin->input_admin($data);
 			redirect (site_url('super_admin/administrator_super'));
 		} else {
 			echo '<script>alert("Number of Employee Not Avalaible");</script>';
@@ -57,14 +57,14 @@ class Administrator_super extends CI_Controller {
 
 		);
 
-		$this->Db_admin->update_admin($data, $id);
+		$this->m_admin->update_admin($data, $id);
 
 		redirect (site_url('super_admin/administrator_super'));
 	}
 
 	public function delete_admin(){
 		$id = array('no_peg' => $this->uri->segment(4));
-		$this->Db_admin->delete_admin($id);
+		$this->m_admin->delete_admin($id);
 		redirect (site_url('super_admin/administrator_super'));
 	}
 

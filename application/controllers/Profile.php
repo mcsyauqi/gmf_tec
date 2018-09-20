@@ -8,7 +8,6 @@ class Profile extends CI_Controller {
 		$this->template->load('super_admin/v_static','super_admin/v_profile_super');
 	}
 
-
 }
 
 ?>

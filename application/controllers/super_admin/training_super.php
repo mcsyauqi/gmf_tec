@@ -5,21 +5,21 @@ class Training_super extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_pegawai');
-		$this->load->model('Db_training');
+		$this->load->model('m_pegawai');
+		$this->load->model('m_training');
 		$this->gate->cek_login();
 		$this->gate->role_s_admin();
 	}
 	public function index()
 	{
-		$data['training'] = $this->Db_training->getAll('training');
+		$data['training'] = $this->m_training->getAll('training');
 		$this->template->load('super_admin/v_static_super','super_admin/v_training_super',$data);
 	}
 
 	public function edit_training()
 	{
 		$id = $this->uri->segment(4);
-		$data['training'] = $this->Db_training->edit_training($id);
+		$data['training'] = $this->m_training->edit_training($id);
 		$this->template->load('super_admin/v_static_super','super_admin/v_edit_training_super',$data);
 		
 	}
@@ -83,14 +83,14 @@ class Training_super extends CI_Controller {
 				'stat_typer1' => $this->input->post('stat_typer1'),
 			);
 
-			$this->Db_training->update_training($dta, $id, $due_human);
+			$this->m_training->update_training($dta, $id, $due_human);
 		} 
 
 		$due = array(
 			'due_human' => $due_human,  );
 
-		$this->Db_training->update_training($data, $id, $due);
-		$this->Db_training->update_due($id, $due);
+		$this->m_training->update_training($data, $id, $due);
+		$this->m_training->update_due($id, $due);
 
 		redirect (site_url('super_admin/training_super'));
 	}
