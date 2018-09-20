@@ -5,7 +5,7 @@ class Dashboard_super extends CI_Controller {
 
 	function __construct() {
 		parent:: __construct();
-		$this->load->model('Db_training');	
+		$this->load->model('m_training');	
 	}
 
 	public function index()
@@ -25,8 +25,8 @@ class Dashboard_super extends CI_Controller {
 				$tra='due_human';
 				$tra1='due_cas';
 				//echo $param;
-				$data['hum'] = $this->Db_training->training_reminder($tra,$par);
-				$data['ca'] = $this->Db_training->training_reminder($tra1,$par);
+				$data['hum'] = $this->m_training->training_reminder($tra,$par);
+				$data['ca'] = $this->m_training->training_reminder($tra1,$par);
 				$this->template->load('super_admin/v_static_super','super_admin/v_dashboard_super',$data);
 			}
 
