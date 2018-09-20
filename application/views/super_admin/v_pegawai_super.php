@@ -2,6 +2,11 @@
 $page_now="v_pegawai_super";
 include 'v_navbar_super.php';
 ?>
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Apakah anda yakin ingin menghapus?');
+}
+</script>
 
 <div class="main-panel">
 	<div class="content">
@@ -44,8 +49,11 @@ include 'v_navbar_super.php';
 												echo date("d-M-Y",$tgl_bener);?></td>
 												<td><?php echo $peg->jabatan;?></td>
 												<td><?php echo $peg->pendidikan;?></td>
+												
 												<td><a href="pegawai_super/edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
 												<td><a id="hasil" href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+												<td><a href="edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
+												<td><a href="delete_pegawai/<?php echo $peg->no_peg;?>" onclick="return checkDelete()"><i class="la la-remove" style="font-size: 20px"></i></a></td>
 
 											</tr>
 										<?php }
