@@ -57,5 +57,17 @@ class Db_training extends CI_Model{
 		->where($par)
 		->get();
 	}
+
+	public function training_reminder($tra,$par){
+
+		$param = $tra." BETWEEN " . "'" . $par['date1'] . "'" . " AND " . "'" . $par['date2'] . "'";
+		return $this->db->select('training.no_peg, pegawai.nama_peg, training.unit, training.due_human, training.due_cas, training.done_fts, training.done_sms, training.done_ewis, training.done_module, training.done_gqs, training.done_batk, training.done_basic, training.done_cont, training.stat_typer1')
+		->from('training')
+		->join('pegawai', 'training.no_peg=pegawai.no_peg')
+		->where($param)
+		->order_by($tra,'ASC')
+		->limit(5)
+		->get();
+	}
 	
 }
