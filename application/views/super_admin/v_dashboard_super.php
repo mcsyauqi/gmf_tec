@@ -429,48 +429,59 @@ Highcharts.chart('container', {
   $cek_training = mysqli_query($connect,"SELECT * from jenis_training");
   $jumlah_training = mysqli_num_rows($cek_training);
 
+  $cek_unit = mysqli_query($connect,"SELECT distinct unit from pegawai order by unit");
+  $jumlah_unit = mysqli_num_rows($cek_unit);
+
+  $cek_pegawai= mysqli_query($connect,"SELECT * from pegawai");
+  $jumlah_pegawai = mysqli_num_rows($cek_pegawai);
+
   for ($i=0; $i < $jumlah_training ; $i++) { 
     $array_training= mysqli_fetch_array($cek_training);
     $nama_training[$i] = $array_training['nama_training'];
-  } ?>
+    $stat_training[$i] = $array_training['stat_training'];
+  }
+
+  for ($j=0; $j < $jumlah_unit ; $j++) { 
+    $array_unit= mysqli_fetch_array($cek_unit);
+    $nama_unit[$j] = $array_unit['unit'];
+  }
+
+   ?>
   "drilldown": {
     "series": [
     <?php
-    for ($j=0; $j < $jumlah_training; $j++) { ?>
+    for ($l=0; $l < $jumlah_training; $l++) { ?>
       {
 
-        "name": "<?php echo $nama_training[$j]; ?>",
-        "id": "<?php echo $nama_training[$j]; ?>",
+        "name": "<?php echo $nama_training[$l]; ?>",
+        "id": "<?php echo $nama_training[$l]; ?>",
         "data": [
-        ["TEA-1",5],
-        ["TEA-2",0.29],
-        ["TEA-3",0.27],
-        ["TEA-4",0.27],
-        ["TEC-1",6.2],
-        ["TED-1",0.29],
-        ["TED-2",0.27],
-        ["TED-3",0.27],
-        ["TED-4",6.2],
-        ["TED-5",0.29],
-        ["TEL-1",0.27],
-        ["TEL-2",0.27],
-        ["TER-1",6.2],
-        ["TER-2",0.29],
-        ["TER-3",0.27],
-        ["TER-4",0.27],
-        ["TER-5",6.2],
-        ["JKTTEA",0.29],
-        ["JKTTEB",0.27],
-        ["JKTTEC",0.27],
-        ["JKTTED",6.2],
-        ["JKTTEJ",0.29],
-        ["JKTTEL",0.27],
-        ["JKTTEN",0.27],
-        ["JKTTEQ",6.2],
-        ["JKTTER",0.29],
-        ["JKTTEX",0.27],
-        ["JKTTEZ",0.27],
-        ["JKTTE",0.47]
+        <?php 
+          for ($m=0; $m < $jumlah_unit; $m++) { 
+            $stat = $stat_training[$l];
+
+            /*Status Total*/
+            $cek_total = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' ");
+            $jumlah_total = mysqli_num_rows($cek_total);
+
+            if ($nama_training[$l] == 'HUMAN FACTOR' or $nama_training[$l] == 'CASR,FAR') {
+              /*Status yang dicari*/
+              $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5 or "."$stat"."=4)");
+              $jumlah_status = mysqli_num_rows($cek_status);
+
+            }
+            else {
+              /*Status yang dicari*/
+              $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5)");
+              $jumlah_status = mysqli_num_rows($cek_status);
+            }
+
+            $persen = ($jumlah_status/$jumlah_total)*100;
+           
+            ?>
+            ["<?php echo $nama_unit[$m]; ?>",<?php echo $persen; ?>],
+      <?php   }  ?>
+       
         ]
       },
     <?php } ?>
