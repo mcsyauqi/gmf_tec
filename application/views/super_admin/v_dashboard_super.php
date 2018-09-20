@@ -244,73 +244,73 @@ $sisa_training_comp=100-$training_comp;
 </div>
 <div class="row">
 
-<div class="col-md-4">
-  <div class="card">
-    <div class="card-body" style="background-color:#ff6e00">
-      <div class="row">
-       <div class="col-5">
-        <div class="icon-big text-center">
-         <i class="la la-tachometer" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body" style="background-color:#ff6e00">
+        <div class="row">
+         <div class="col-5">
+          <div class="icon-big text-center">
+           <i class="la la-tachometer" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+         </div>
+       </div>
+       <div class="numbers" style="margin-left: -17%">
+         <h4 class="card-title" style="color: #ffffff">Training Compliance</h4>
+         <p class="card-category" style="color: #ffffff">Avarage of Engineering Services</p>
        </div>
      </div>
-     <div class="numbers" style="margin-left: -17%">
-       <h4 class="card-title" style="color: #ffffff">Training Compliance</h4>
-       <p class="card-category" style="color: #ffffff">Avarage of Engineering Services</p>
-     </div>
    </div>
- </div>
- <div class="card-body">
-  <div id="ci_container" style="min-width: 290px; height: 300px; max-width: 400px; margin:0px; z-index: 1;"></div>
+   <div class="card-body">
+    <div id="ci_container" style="min-width: 290px; height: 300px; max-width: 400px; margin:0px; z-index: 1;"></div>
 
 
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-    Highcharts.chart('ci_container', {
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: 0,
-        plotShadow: false
-      },
-      tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-      },
-      plotOptions: {
-        pie: {
-          dataLabels: {
-            enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-            distance: -50,
-            style: {
-              fontWeight: 'bold',
-              color: 'black'
-            }
-          },
-          startAngle: -90,
-          endAngle: -90,
-          center: ['50%', '50%']
-        }
-      },
-      series: [{
-        type: 'pie',
-        name: 'Prosentase',
-        innerSize: '50%',
-        data: [
-        ['Success', <?php echo "$training_comp"?>],
-        {
-          name: 'Not yet',
-          y: <?php echo "$sisa_training_comp"?>,
-          dataLabels: {
-            enabled: false
+      Highcharts.chart('ci_container', {
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: 0,
+          plotShadow: false
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              enabled: true,
+              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+              distance: -50,
+              style: {
+                fontWeight: 'bold',
+                color: 'black'
+              }
+            },
+            startAngle: -90,
+            endAngle: -90,
+            center: ['50%', '50%']
           }
-        }
-        ]
-      }]
-    });
+        },
+        series: [{
+          type: 'pie',
+          name: 'Prosentase',
+          innerSize: '50%',
+          data: [
+          ['Success', <?php echo "$training_comp"?>],
+          {
+            name: 'Not yet',
+            y: <?php echo "$sisa_training_comp"?>,
+            dataLabels: {
+              enabled: false
+            }
+          }
+          ]
+        }]
+      });
 
 
-  </script>
-</div>
+    </script>
+  </div>
 </div>
 </div>
 
@@ -446,7 +446,7 @@ Highcharts.chart('container', {
     $nama_unit[$j] = $array_unit['unit'];
   }
 
-   ?>
+  ?>
   "drilldown": {
     "series": [
     <?php
@@ -457,31 +457,31 @@ Highcharts.chart('container', {
         "id": "<?php echo $nama_training[$l]; ?>",
         "data": [
         <?php 
-          for ($m=0; $m < $jumlah_unit; $m++) { 
-            $stat = $stat_training[$l];
+        for ($m=0; $m < $jumlah_unit; $m++) { 
+          $stat = $stat_training[$l];
 
-            /*Status Total*/
-            $cek_total = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' ");
-            $jumlah_total = mysqli_num_rows($cek_total);
+          /*Status Total*/
+          $cek_total = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' ");
+          $jumlah_total = mysqli_num_rows($cek_total);
 
-            if ($nama_training[$l] == 'HUMAN FACTOR' or $nama_training[$l] == 'CASR,FAR') {
-              /*Status yang dicari*/
-              $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5 or "."$stat"."=4)");
-              $jumlah_status = mysqli_num_rows($cek_status);
+          if ($nama_training[$l] == 'HUMAN FACTOR' or $nama_training[$l] == 'CASR,FAR') {
+            /*Status yang dicari*/
+            $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5 or "."$stat"."=4)");
+            $jumlah_status = mysqli_num_rows($cek_status);
 
-            }
-            else {
-              /*Status yang dicari*/
-              $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5)");
-              $jumlah_status = mysqli_num_rows($cek_status);
-            }
+          }
+          else {
+            /*Status yang dicari*/
+            $cek_status = mysqli_query($connect,"SELECT * from training where unit='$nama_unit[$m]' and ("."$stat"."=5)");
+            $jumlah_status = mysqli_num_rows($cek_status);
+          }
 
-            $persen = ($jumlah_status/$jumlah_total)*100;
-           
-            ?>
-            ["<?php echo $nama_unit[$m]; ?>",<?php echo $persen; ?>],
-      <?php   }  ?>
-       
+          $persen = ($jumlah_status/$jumlah_total)*100;
+
+          ?>
+          ["<?php echo $nama_unit[$m]; ?>",<?php echo $persen; ?>],
+        <?php   }  ?>
+
         ]
       },
     <?php } ?>
@@ -493,84 +493,67 @@ Highcharts.chart('container', {
 </div>
 </div>
 <div class="col-md-6">
-                <div class="card">
-                  <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
-                    <h4 class="card-title" style="color: white">Training Reminder</h4>
-                    <p class="card-category" style="color: white">Human Factor</p>
-                  </div>
-                  <div class="card-body" >
-                    <table class="table table-head table-striped table-hover"  >
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Nama</th>
-                          <th scope="col">Unit</th>
-                          <th scope="col">HF Due Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-</div>
-<div class="col-md-6">
-                <div class="card">
-                  <div class="card-header" style="background-color: #395c28; border-radius: 10px">
-                    <h4 class="card-title" style="color: white">Training Reminder</h4>
-                    <p class="card-category" style="color: white">CASR</p>
-                  </div>
-                  <div class="card-body" >
-                    <table class="table table-head table-striped table-hover"  >
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Nama</th>
-                          <th scope="col">Unit</th>
-                          <th scope="col">CASR Due Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-<div class="col-md-4">
+  <div class="card">
+    <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
+      <h4 class="card-title" style="color: white">Training Reminder</h4>
+      <p class="card-category" style="color: white">Human Factor</p>
+    </div>
+    <div class="card-body" >
+      <table class="table table-head table-striped table-hover"  >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Unit</th>
+            <th scope="col">HF Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php $no=1; foreach ($hum->result() as $val) { ?>
+            <tr>
+              <td><?php echo $no; ?></td>
+              <td><?php echo $val->nama_peg; ?></td>
+              <td><?php echo $val->unit; ?></td>
+              <td><?php echo $val->due_human; ?></td>
+            </tr>
+            <?php $no++; } ?>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header" style="background-color: #395c28; border-radius: 10px">
+        <h4 class="card-title" style="color: white">Training Reminder</h4>
+        <p class="card-category" style="color: white">CASR</p>
+      </div>
+      <div class="card-body" >
+        <table class="table table-head table-striped table-hover"  >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Unit</th>
+              <th scope="col">CASR Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php $no=1; foreach ($ca->result() as $val) { ?>
+            <tr>
+              <td><?php echo $no; ?></td>
+              <td><?php echo $val->nama_peg; ?></td>
+              <td><?php echo $val->unit; ?></td>
+              <td><?php echo $val->due_cas; ?></td>
+            </tr>
+            <?php $no++; } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
     <div class="card">
       <div class="card-body" style="background-color:#3ea71e">
         <div class="row">
