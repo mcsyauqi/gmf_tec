@@ -31,6 +31,10 @@ class M_training extends CI_Model{
 		$this->db->where('no_peg', $id)->update('training', $data);
 	}
 
+	public function update_unit_training($dta, $id){
+		$this->db->where('no_peg', $id)->update('training', $dta);
+	}
+
 	public function update_due($id,$due){
 		$this->db->where('no_peg', $id)->update('training', $due);
 	}
