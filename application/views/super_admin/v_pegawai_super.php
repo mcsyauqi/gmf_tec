@@ -52,9 +52,6 @@ function checkDelete(){
 												
 												<td><a href="pegawai_super/edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
 												<td><a id="hasil" href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
-												<td><a href="edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
-												<td><a href="delete_pegawai/<?php echo $peg->no_peg;?>" onclick="return checkDelete()"><i class="la la-remove" style="font-size: 20px"></i></a></td>
-
 											</tr>
 										<?php }
 										?>

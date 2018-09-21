@@ -112,61 +112,61 @@ for ($i=0; $i < $total_peg; $i++) {
 
 //data chart training-training
 $data_human = mysqli_query($connect, "SELECT * FROM training WHERE stat_human=5 or stat_human=4");
-$data_human_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_human=5 or stat_human=4 or stat_human=1");
+$data_human_total = mysqli_query($connect, "SELECT * FROM training");
 $human = mysqli_num_rows($data_human); 
 $human_total = mysqli_num_rows($data_human_total);
 $human_persen =  ($human/$human_total)*100;
 
 $data_cas = mysqli_query($connect, "SELECT * FROM training WHERE stat_cas=5 or stat_cas=4");
-$data_cas_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_cas=5 or stat_cas=4 or stat_cas=1");
+$data_cas_total = mysqli_query($connect, "SELECT * FROM training");
 $cas = mysqli_num_rows($data_cas); 
 $cas_total = mysqli_num_rows($data_cas_total);
 $cas_persen =  ($cas/$cas_total)*100;
 
 $data_fts = mysqli_query($connect, "SELECT * FROM training WHERE stat_fts=5");
-$data_fts_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_fts=5 or stat_fts=4 or stat_fts=1");
+$data_fts_total = mysqli_query($connect, "SELECT * FROM training");
 $fts = mysqli_num_rows($data_fts); 
 $fts_total = mysqli_num_rows($data_fts_total);
 $fts_persen =  ($fts/$fts_total)*100;
 
 $data_sms = mysqli_query($connect, "SELECT * FROM training WHERE stat_sms=5");
-$data_sms_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_sms=5 or stat_sms=4 or stat_sms=1");
+$data_sms_total = mysqli_query($connect, "SELECT * FROM training");
 $sms = mysqli_num_rows($data_sms); 
 $sms_total = mysqli_num_rows($data_sms_total);
 $sms_persen =  ($sms/$sms_total)*100;
 
 $data_ewis = mysqli_query($connect, "SELECT * FROM training WHERE stat_ewis=5");
-$data_ewis_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_ewis=5 or stat_ewis=4 or stat_ewis=1");
+$data_ewis_total = mysqli_query($connect, "SELECT * FROM training");
 $ewis = mysqli_num_rows($data_ewis); 
 $ewis_total = mysqli_num_rows($data_ewis_total);
 $ewis_persen =  ($ewis/$ewis_total)*100;
 
 $data_module = mysqli_query($connect, "SELECT * FROM training WHERE stat_module=5");
-$data_module_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_module=5 or stat_module=4 or stat_module=1");
+$data_module_total = mysqli_query($connect, "SELECT * FROM training");
 $module = mysqli_num_rows($data_module); 
 $module_total = mysqli_num_rows($data_module_total);
 $module_persen =  ($module/$module_total)*100;
 
 $data_gqs = mysqli_query($connect, "SELECT * FROM training WHERE stat_gqs=5");
-$data_gqs_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_gqs=5 or stat_gqs=4 or stat_gqs=1");
+$data_gqs_total = mysqli_query($connect, "SELECT * FROM training");
 $gqs = mysqli_num_rows($data_gqs); 
 $gqs_total = mysqli_num_rows($data_gqs_total);
 $gqs_persen =  ($gqs/$gqs_total)*100;
 
 $data_batk = mysqli_query($connect, "SELECT * FROM training WHERE stat_batk=5");
-$data_batk_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_batk=5 or stat_batk=4 or stat_batk=1");
+$data_batk_total = mysqli_query($connect, "SELECT * FROM training");
 $batk = mysqli_num_rows($data_batk); 
 $batk_total = mysqli_num_rows($data_batk_total);
 $batk_persen =  ($batk/$batk_total)*100;
 
 $data_basic = mysqli_query($connect, "SELECT * FROM training WHERE stat_basic=5");
-$data_basic_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_basic=5 or stat_basic=4 or stat_basic=1");
+$data_basic_total = mysqli_query($connect, "SELECT * FROM training");
 $basic = mysqli_num_rows($data_basic); 
 $basic_total = mysqli_num_rows($data_basic_total);
 $basic_persen =  ($basic/$basic_total)*100;
 
 $data_cont = mysqli_query($connect, "SELECT * FROM training WHERE stat_cont=5");
-$data_cont_total = mysqli_query($connect, "SELECT * FROM training WHERE stat_cont=5 or stat_cont=4 or stat_cont=1");
+$data_cont_total = mysqli_query($connect, "SELECT * FROM training");
 $cont = mysqli_num_rows($data_cont); 
 $cont_total = mysqli_num_rows($data_cont_total);
 $cont_persen =  ($cont/$cont_total)*100;
@@ -514,7 +514,9 @@ Highcharts.chart('container', {
               <td><?php echo $no; ?></td>
               <td><?php echo $val->nama_peg; ?></td>
               <td><?php echo $val->unit; ?></td>
-              <td><?php echo $val->due_human; ?></td>
+              <?php
+              $newDate = date('d-M-Y', strtotime($val->due_human)); ?>
+              <td><?php echo $newDate; ?></td>
             </tr>
             <?php $no++; } ?>
 
@@ -541,42 +543,44 @@ Highcharts.chart('container', {
           </thead>
           <tbody>
             <?php $no=1; foreach ($ca->result() as $val) { ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $val->nama_peg; ?></td>
-              <td><?php echo $val->unit; ?></td>
-              <td><?php echo $val->due_cas; ?></td>
-            </tr>
-            <?php $no++; } ?>
-          </tbody>
-        </table>
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $val->nama_peg; ?></td>
+                <td><?php echo $val->unit; ?></td>
+                <?php
+                $newDate = date('d-M-Y', strtotime($val->due_cas)); ?>
+                <td><?php echo $newDate; ?></td>
+              </tr>
+              <?php $no++; } ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body" style="background-color:#3ea71e">
-        <div class="row">
-         <div class="col-5">
-          <div class="icon-big text-center">
-           <i class="la la-cubes" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body" style="background-color:#3ea71e">
+          <div class="row">
+           <div class="col-5">
+            <div class="icon-big text-center">
+             <i class="la la-cubes" style="color: #ffffff; font-size: 50px; margin-left: -40%"></i>
+           </div>
+         </div>
+         <div class="numbers" style="margin-left: -17%">
+           <h4 class="card-title" style="color: #ffffff">Active Working Period</h4>
+           <p class="card-category" style="color: #ffffff">Engineering Services</p>
          </div>
        </div>
-       <div class="numbers" style="margin-left: -17%">
-         <h4 class="card-title" style="color: #ffffff">Active Working Period</h4>
-         <p class="card-category" style="color: #ffffff">Engineering Services</p>
-       </div>
      </div>
-   </div>
-   <div class="card-header">
-    <div id="ro_container" style="min-width: 100%; height: 300px; margin: 0 auto"></div>
+     <div class="card-header">
+      <div id="ro_container" style="min-width: 100%; height: 300px; margin: 0 auto"></div>
 
-    <script type="text/javascript">
+      <script type="text/javascript">
 
-      Highcharts.chart('ro_container', {
-        chart: {
-          type: 'column'
-        },
+        Highcharts.chart('ro_container', {
+          chart: {
+            type: 'column'
+          },
     // title: {
     //     text: 'World\'s largest cities per 2017'
     // },

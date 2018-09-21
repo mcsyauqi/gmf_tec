@@ -69,15 +69,11 @@
 				<nav class="pull-left">
 					<ul class="nav">
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="http://www.gmf-aeroasia.co.id/">
 								Website
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								Help
-							</a>
-						</li>
+
 					</ul>
 				</nav>	
 				<div class="copyright ml-auto">
@@ -86,8 +82,6 @@
 					</div>				
 				</div>
 			</footer>
-
-
 		</body>
 
 		<script>

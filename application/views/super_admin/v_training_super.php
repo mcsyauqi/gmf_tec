@@ -91,20 +91,17 @@ $total_peg = mysqli_num_rows($peg);
 											$pattern = '/([^0-9]+)/';
 											$sekarang = preg_replace($pattern,'',$tgl_sekarang);
 											$due = preg_replace($pattern,'',$train->due_human);
-											$cek = $due - $sekarang; 
+											$cek = (int)$due - $sekarang; 
 											$done_bener = strtotime($train->done_human);
 
 											$date = new DateTime($train->due_human);
 											$now = new DateTime();
 											$interval = $date->diff($now);
-
-											
 											?>
-
 
 											<?php if ($done_bener!=0000-00-00) { ?>
 												
-												<?php if ($interval->days<=60) { ?>
+												<?php if ($interval->days<=60 && $cek >= 0) { ?>
 													<td ><span class="tipe3"><?php $done_bener = strtotime($train->done_human); ?>
 													<?php echo date("d-M-Y",$done_bener);?></span></td> 
 													<?php
@@ -134,20 +131,19 @@ $total_peg = mysqli_num_rows($peg);
 											$pattern = '/([^0-9]+)/';
 											$sekarang = preg_replace($pattern,'',$tgl_sekarang);
 											$due = preg_replace($pattern,'',$train->due_cas);
-											$cek = $due - $sekarang; 
+											$cek = (int)$due - $sekarang; 
 											$done_bener = strtotime($train->done_cas);
 
 											$date = new DateTime($train->due_cas);
 											$now = new DateTime();
 											$interval = $date->diff($now);
 
-											
 											?>
 
 
 											<?php if ($done_bener!=0000-00-00) { ?>
 												
-												<?php if ($interval->days<=60) { ?>
+												<?php if ($interval->days<=60 && $cek >= 0) { ?>
 													<td ><span class="tipe3"><?php $done_bener = strtotime($train->done_cas); ?>
 													<?php echo date("d-M-Y",$done_bener);?></span></td> 
 													<?php
@@ -195,7 +191,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -226,7 +222,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -257,7 +253,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -288,7 +284,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -319,7 +315,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -350,7 +346,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -381,7 +377,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -412,7 +408,7 @@ $total_peg = mysqli_num_rows($peg);
 
 											<?php } else { ?>
 												<td>
-													<p style="background-color: red; border-radius: 5px; color: white">  <?php echo ("Belum Training");?></p>
+													<p style="background-color: grey; border-radius: 5px; color: white">  <?php echo ("N/A");?></p>
 												</td>
 												<?php 	
 											} ?>
@@ -443,7 +439,7 @@ $total_peg = mysqli_num_rows($peg);
 
 												<?php } else { ?>
 													<td>
-														<p style="background-color: red; border-radius: 5px; color: white;">  <?php echo ("Belum Training");?></p>
+														<p style="background-color: grey; border-radius: 5px; color: white;">  <?php echo ("N/A");?></p>
 													</td>
 													<?php 	
 												} ?>
@@ -483,34 +479,34 @@ $total_peg = mysqli_num_rows($peg);
 													$atas++;
 												}
 
-												if ($train->stat_human!=0){
+												if ($train->stat_human!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_cas!=0){
+												if ($train->stat_cas!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_fts!=0){
+												if ($train->stat_fts!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_sms!=0){
+												if ($train->stat_sms!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_ewis!=0){
+												if ($train->stat_ewis!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_module!=0){
+												if ($train->stat_module!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_gqs!=0){
+												if ($train->stat_gqs!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_batk!=0){
+												if ($train->stat_batk!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_basic!=0){
+												if ($train->stat_basic!=NULL){
 													$bawah++;
 												}
-												if ($train->stat_cont!=0){
+												if ($train->stat_cont!=NULL){
 													$bawah++;
 												}
 
