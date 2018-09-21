@@ -35,7 +35,11 @@ class Pegawai_super extends CI_Controller {
 			'tgl_masuk' => $this->input->post('tgl_masuk'),
 			'tgl_lahir' => $this->input->post('tgl_lahir'),
 		);
-		$dta = array('no_peg' => $this->input->post('no_peg'));
+
+		$dta = array(
+			'no_peg' => $this->input->post('no_peg'),
+			'unit' => $this->input->post('unit')
+		);
 
 		$this->m_pegawai->input_pegawai($data);
 		$this->m_training->input_training($dta);
@@ -73,7 +77,12 @@ class Pegawai_super extends CI_Controller {
 		);
 		$id = $this->input->post('no_peg');
 
+		$dta = array(
+			'unit' => $this->input->post('unit'),
+		);
+
 		$this->m_pegawai->update_pegawai($data, $id);
+		$this->m_training->update_unit_training($dta, $id);
 
 		redirect (site_url('super_admin/pegawai_super'));
 	}

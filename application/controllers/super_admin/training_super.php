@@ -44,20 +44,80 @@ class Training_super extends CI_Controller {
 		
 		$done_bener = strtotime($this->input->post('done_human'));
 		if ($done_bener!=0000-00-00) {
-				$due_human = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_human')))); 
-				mysqli_query($connect,"UPDATE training set stat_human=5 where no_peg='$id' ");
-		} 
+			$due_human = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_human')))); 
+			mysqli_query($connect,"UPDATE training set stat_human=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_human=0 where no_peg='$id' ");
+		}
 
 		$done_bener = strtotime($this->input->post('done_human'));
 		if ($done_bener!=0000-00-00) {
-				$due_cas = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_cas')))); 
-				mysqli_query($connect,"UPDATE training set stat_cas=5 where no_peg='$id' ");	
-		} 
-
+			$due_cas = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_cas')))); 
+			mysqli_query($connect,"UPDATE training set stat_cas=5 where no_peg='$id' ");	
+		}  else {
+			mysqli_query($connect,"UPDATE training set stat_cas=0 where no_peg='$id' ");
+		}
 
 		$due = array(
 			'due_human' => $due_human,
 			'due_cas' => $due_cas,  );
+
+		$done_bener = strtotime($this->input->post('done_fts'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_fts=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_fts=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_sms'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_sms=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_sms=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_ewis'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_ewis=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_ewis=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_module'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_module=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_module=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_gqs'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_gqs=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_gqs=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_batk'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_batk=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_batk=0 where no_peg='$id' ");
+		}
+		
+		$done_bener = strtotime($this->input->post('done_basic'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_basic=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_basic=0 where no_peg='$id' ");
+		}
+
+		$done_bener = strtotime($this->input->post('done_cont'));
+		if ($done_bener!=0000-00-00) {
+			mysqli_query($connect,"UPDATE training set stat_cont=5 where no_peg='$id' ");
+		} else {
+			mysqli_query($connect,"UPDATE training set stat_cont=0 where no_peg='$id' ");
+		}
+
 
 		$this->m_training->update_training($data, $id, $due);
 		$this->m_training->update_due($id, $due);

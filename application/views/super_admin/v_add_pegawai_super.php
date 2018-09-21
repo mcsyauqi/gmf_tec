@@ -35,6 +35,7 @@ include 'v_navbar_super.php';
 									<select class="form-control form-control" id="defaultSelect" name="bidang">
 										<option>--Pilih Bidang--</option>
 										<option></option>
+										<option>JKTTE</option>
 										<option>JKTTEA</option>
 										<option>JKTTEC</option>
 										<option>JKTTED</option>
