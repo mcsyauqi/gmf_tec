@@ -4,7 +4,11 @@ include 'v_navbar_super.php';
 ?>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Apakah anda yakin ingin menghapus?');
+}
+</script>
 <div class="main-panel">
 	<div class="content">
 		<div class="container-fluid">
@@ -52,7 +56,7 @@ include 'v_navbar_super.php';
 								</div>
 							</div>
 						</div>
-						<div class="container" style="overflow-x: scroll;">
+						<div class="container">
 							<table class="table table-striped table-bordered data" >
 								<thead>
 									<tr>			
@@ -76,7 +80,7 @@ include 'v_navbar_super.php';
 											<td><?php echo $us->password;?></td>
 											<td><i class="show-modal la la-edit" style="font-size:20px" data-no="<?php echo $us->no_peg;?>" data-peg="<?php echo $us->nama_peg;?>" data-user="<?php echo $us->username;?>" data-pass="<?php echo $us->password;?>"></i></td>
 
-											<td><a id="hasil" href="<?php echo site_url('super_admin/administrator_super/delete_admin/'.$us->no_peg); ?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+											<td><a id="hasil" href="<?php echo site_url('super_admin/administrator_super/delete_admin/'.$us->no_peg); ?>" onclick="return checkDelete()"><i class="la la-remove" style="font-size: 20px"></i></a></td>
 										</tr>
 									<?php }
 									?>

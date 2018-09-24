@@ -19,7 +19,7 @@ function checkDelete(){
 							<a href="<?php echo site_url('super_admin/pegawai_super/add_pegawai');?>">
 								<button class="btn btn-info">Add Employee</button></a>
 							</div>
-							<div class="container" style="overflow-x: scroll;">
+							<div class="container">
 								<table class="table table-striped table-bordered data" >
 									<thead>
 										<tr>			
@@ -51,7 +51,7 @@ function checkDelete(){
 												<td><?php echo $peg->pendidikan;?></td>
 												
 												<td><a href="pegawai_super/edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
-												<td><a id="hasil" href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+												<td><a  href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>" onclick="return checkDelete()" ><i class="la la-remove" style="font-size: 20px"></i></a></td>
 											</tr>
 										<?php }
 										?>

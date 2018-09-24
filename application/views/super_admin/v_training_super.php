@@ -35,20 +35,9 @@ $total_peg = mysqli_num_rows($peg);
 			<div class="row">
 				<div class="col-md-12" style="max-width: 100%; width: auto;">
 					<div class="card">
-						<div class="card-header" style="margin-top: -1%; text-align: center;">
-							<p class="demo">
-								<div class="dropdown">
-									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-										Export as
-									</button>
-
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-
-										<a class="dropdown-item" href="#">Excel</a>
-										<a class="dropdown-item" id="non_print" onclick="javascript:window.print()">PDF</a>
-									</ul>
-								</div>
-							</p>
+						<div class="card-header">
+								<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/print_pegawai');?>">
+								<button class="btn btn-info">Export as PDF</button></a>
 						</div>
 						<div class="container" style="overflow-x: scroll;">
 							<table class="table table-striped table-bordered data" style="width: 175%" rules="row" >

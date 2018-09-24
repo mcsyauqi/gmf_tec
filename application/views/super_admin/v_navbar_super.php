@@ -11,9 +11,11 @@
 								<span class="user-level">
 									<?php 
 									if ($this->session->userdata('tipe')=='super_admin') {
-										echo "Super Admin";
+										$unit = $this->db->select('unit')->from('pegawai')->where('no_peg',$this->session->userdata('no_peg'))->get()->row();
+										echo "$unit->unit - Super Admin";
 									} else {
-										echo "Admin";
+										$unit = $this->db->select('unit')->from('pegawai')->where('no_peg',$this->session->userdata('no_peg'))->get()->row();
+										echo "$unit->unit - Admin";
 									}
 									?>
 								</span>

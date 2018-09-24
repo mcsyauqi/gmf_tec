@@ -203,7 +203,7 @@ $sisa_training_comp=100-$training_comp;
 </div>
 </div>
 
-<div class="col-md-3"  style="margin-left: 80px">
+<div class="col-md-3"  style="margin-left: 100px">
   <div class="card card-stats">
    <div class="card-body" style="background-color:#ecb60f">
     <div class="row">
@@ -222,9 +222,9 @@ $sisa_training_comp=100-$training_comp;
 </div>
 </div>
 </div>
-<div class="col-md-3"  style="margin-left: 80px">
+<div class="col-md-3"  style="margin-left: 100px">
   <div class="card card-stats">
-   <div class="card-body" style="background-color:#189a90">
+   <div class="card-body" style="background-color:#2fc4a6">
     <div class="row">
      <div class="col-5">
       <div class="icon-big text-center">
@@ -498,7 +498,7 @@ Highcharts.chart('container', {
       <h4 class="card-title" style="color: white">Training Reminder</h4>
       <p class="card-category" style="color: white">Human Factor</p>
     </div>
-    <div class="card-body" >
+    <div class="card-body" style="height: 260px; overflow-y: scroll;">
       <table class="table table-head table-striped table-hover"  >
         <thead>
           <tr>
@@ -531,7 +531,7 @@ Highcharts.chart('container', {
         <h4 class="card-title" style="color: white">Training Reminder</h4>
         <p class="card-category" style="color: white">CASR</p>
       </div>
-      <div class="card-body" >
+      <div class="card-body" style="height: 260px; overflow-y: scroll;">
         <table class="table table-head table-striped table-hover"  >
           <thead>
             <tr>
