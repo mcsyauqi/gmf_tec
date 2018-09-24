@@ -48,14 +48,16 @@ class Training_super extends CI_Controller {
 			mysqli_query($connect,"UPDATE training set stat_human=5 where no_peg='$id' ");
 		} else {
 			mysqli_query($connect,"UPDATE training set stat_human=0 where no_peg='$id' ");
+			$due_human = date('Y-m-d', strtotime($this->input->post('done_human')));
 		}
 
-		$done_bener = strtotime($this->input->post('done_human'));
+		$done_bener = strtotime($this->input->post('done_cas'));
 		if ($done_bener!=0000-00-00) {
 			$due_cas = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_cas')))); 
 			mysqli_query($connect,"UPDATE training set stat_cas=5 where no_peg='$id' ");	
 		}  else {
 			mysqli_query($connect,"UPDATE training set stat_cas=0 where no_peg='$id' ");
+			$due_cas = date('Y-m-d', strtotime($this->input->post('done_cas')));
 		}
 
 		$due = array(
