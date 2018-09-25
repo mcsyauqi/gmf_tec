@@ -124,6 +124,13 @@ class Pegawai_super extends CI_Controller {
 		$data['training'] = $this->m_training->getAll('training');
 		$this->load->view('super_admin/v_print_table_super',$data);
 	}
+
+	public function print_peg_excel()
+	{
+		$data['title'] = "Laporan Excel";
+		$data['training'] = $this->m_training->getAll('training');
+		$this->load->view('super_admin/v_lap_excel',$data);
+	}
 }
 
-?>
+
