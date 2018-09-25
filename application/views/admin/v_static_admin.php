@@ -37,8 +37,6 @@
 								?></span>
 							</a>
 							<ul class="dropdown-menu dropdown-user">
-								<a class="dropdown-item" href="#"><i class="ti-settings"></i> Change Password</a>
-								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-power-off"></i> Logout</a>
 							</ul>
 							<!-- /.dropdown-user -->

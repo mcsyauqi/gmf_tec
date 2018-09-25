@@ -194,7 +194,7 @@ $sisa_training_comp=100-$training_comp;
        </div>
        <div class="col-7 d-flex align-items-center">
         <div class="numbers">
-         <p class="card-category" style="color: #ffffff">Total Workers</p>
+         <p class="card-category" style="color: #ffffff">Total Employees</p>
          <h4 class="card-title" style="color: #ffffff"><?php echo $total_peg." Orang"?></h4>
        </div>
      </div>
@@ -203,7 +203,7 @@ $sisa_training_comp=100-$training_comp;
 </div>
 </div>
 
-<div class="col-md-3"  style="margin-left: 80px">
+<div class="col-md-3"  style="margin-left: 100px">
   <div class="card card-stats">
    <div class="card-body" style="background-color:#ecb60f">
     <div class="row">
@@ -222,9 +222,9 @@ $sisa_training_comp=100-$training_comp;
 </div>
 </div>
 </div>
-<div class="col-md-3"  style="margin-left: 80px">
+<div class="col-md-3"  style="margin-left: 100px">
   <div class="card card-stats">
-   <div class="card-body" style="background-color:#189a90">
+   <div class="card-body" style="background-color:#2fc4a6">
     <div class="row">
      <div class="col-5">
       <div class="icon-big text-center">
@@ -494,11 +494,11 @@ Highcharts.chart('container', {
 </div>
 <div class="col-md-6">
   <div class="card">
-    <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
+    <div class="card-header" style="background-color:#46a3cb; border-radius: 10px">
       <h4 class="card-title" style="color: white">Training Reminder</h4>
       <p class="card-category" style="color: white">Human Factor</p>
     </div>
-    <div class="card-body" >
+    <div class="card-body" style="height: 260px; overflow-y: scroll;">
       <table class="table table-head table-striped table-hover"  >
         <thead>
           <tr>
@@ -527,11 +527,11 @@ Highcharts.chart('container', {
   </div>
   <div class="col-md-6">
     <div class="card">
-      <div class="card-header" style="background-color: #395c28; border-radius: 10px">
+      <div class="card-header" style="background-color: #c22250; border-radius: 10px">
         <h4 class="card-title" style="color: white">Training Reminder</h4>
-        <p class="card-category" style="color: white">CASR</p>
+        <p class="card-category" style="color: white">Regulation Part 145 + Part M</p>
       </div>
-      <div class="card-body" >
+      <div class="card-body" style="height: 260px; overflow-y: scroll;">
         <table class="table table-head table-striped table-hover"  >
           <thead>
             <tr>

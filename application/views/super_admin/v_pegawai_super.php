@@ -19,8 +19,8 @@ function checkDelete(){
 							<a href="<?php echo site_url('super_admin/pegawai_super/add_pegawai');?>">
 								<button class="btn btn-info">Add Employee</button></a>
 							</div>
-							<div class="container" style="overflow-x: scroll;">
-								<table class="table table-striped table-bordered data" >
+							<div class="container" style="overflow-x: auto;">
+								<table class="table table-striped table-bordered data" style="width: 125%;">
 									<thead>
 										<tr>			
 											<th style="text-align: center">No. Peg</th>
@@ -29,6 +29,10 @@ function checkDelete(){
 											<th style="text-align: center">Date of Joining</th>
 											<th style="text-align: center">Function</th>
 											<th style="text-align: center">Education</th>
+											<th style="text-align: center">TOEIC</th>
+											<th style="text-align: center">Assessment Level</th>
+											<th style="text-align: center">Nilai Assessment</th>
+											<th style="text-align: center">Tanggal Assessment</th>
 											<th style="text-align: center">Edit</th>
 											<th style="text-align: center">Delete</th>
 										</tr>
@@ -49,9 +53,15 @@ function checkDelete(){
 												echo date("d-M-Y",$tgl_bener);?></td>
 												<td><?php echo $peg->jabatan;?></td>
 												<td><?php echo $peg->pendidikan;?></td>
+												<td><?php echo $peg->TOEIC;?></td>
+												<td><?php echo $peg->ass_level;?></td>
+												<td><?php echo $peg->nilai_ass;?></td>
+												<td><?php
+												$tgl_ass = strtotime($peg->tgl_ass); 
+												echo date("d-M-Y",$tgl_ass);?></td>
 												
 												<td><a href="pegawai_super/edit_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-edit" style="font-size:20px"></i></a></td>
-												<td><a id="hasil" href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>"><i class="la la-remove" style="font-size: 20px"></i></a></td>
+												<td><a  href="pegawai_super/delete_pegawai/<?php echo $peg->no_peg;?>" onclick="return checkDelete()" ><i class="la la-remove" style="font-size: 20px"></i></a></td>
 											</tr>
 										<?php }
 										?>

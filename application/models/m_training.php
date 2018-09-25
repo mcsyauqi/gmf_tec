@@ -60,7 +60,6 @@ class M_training extends CI_Model{
 		->join('pegawai', 'training.no_peg=pegawai.no_peg')
 		->where($param)
 		->order_by($tra,'ASC')
-		->limit(5)
 		->get();
 	}
 	

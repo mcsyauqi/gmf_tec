@@ -34,6 +34,10 @@ class Pegawai_super extends CI_Controller {
 			'pendidikan' => $this->input->post('pendidikan'),
 			'tgl_masuk' => $this->input->post('tgl_masuk'),
 			'tgl_lahir' => $this->input->post('tgl_lahir'),
+			'TOEIC' => $this->input->post('TOEIC'),
+			'ass_level' => $this->input->post('ass_level'),
+			'nilai_ass' => $this->input->post('nilai_ass'),
+			'tgl_ass' => $this->input->post('tgl_ass'),
 		);
 
 		$dta = array(
@@ -74,6 +78,10 @@ class Pegawai_super extends CI_Controller {
 			'pendidikan' => $this->input->post('pendidikan'),
 			'tgl_masuk' => $this->input->post('tgl_masuk'),
 			'tgl_lahir' => $this->input->post('tgl_lahir'),
+			'TOEIC' => $this->input->post('TOEIC'),
+			'ass_level' => $this->input->post('ass_level'),
+			'nilai_ass' => $this->input->post('nilai_ass'),
+			'tgl_ass' => $this->input->post('tgl_ass'),
 		);
 		$id = $this->input->post('no_peg');
 
@@ -111,7 +119,11 @@ class Pegawai_super extends CI_Controller {
 		}
 	}
 
-	
+	public function print_pegawai()
+	{
+		$data['training'] = $this->m_training->getAll('training');
+		$this->load->view('super_admin/v_print_table_super',$data);
+	}
 }
 
 ?>
