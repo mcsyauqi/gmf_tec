@@ -112,7 +112,7 @@ include 'v_navbar_super.php';
 								<div class="form-group">
 									<label for="defaultSelect">Education</label>
 									<select class="form-control form-control" id="defaultSelect" name="pendidikan">
-										<option>--Pendidikan Terakhir--</option>
+										<option><?php echo $peg->pendidikan;?></option>
 										<option></option>
 										<option>SLTA/SMK</option>
 										<option>DIPLOMA III</option>
@@ -131,11 +131,12 @@ include 'v_navbar_super.php';
 								</div>
 								<div class="form-group">
 									<label for="form_employee">TOEIC</label>
-									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai TOEIC" name="TOEIC">
+									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai TOEIC" name="TOEIC" value="<?php echo $peg->TOEIC;?>">
 								</div>
 								<div class="form-group">
 									<label for="defaultSelect">Assessment Level</label>
 									<select class="form-control form-control" id="defaultSelect" placeholder="Masukkan Level" name="ass_level">
+										<option><?php echo $peg->ass_level;?></option>
 										<option></option>
 										<option>Manager</option>
 										<option>General Manager</option>
@@ -144,11 +145,11 @@ include 'v_navbar_super.php';
 								</div>	
 								<div class="form-group">
 									<label for="form_employee">Assessment Value</label>
-									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai Assessment" name="nilai_ass">
+									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai Assessment" name="nilai_ass" value="<?php echo $peg->nilai_ass;?>">
 								</div>
 								<div class="form-group">
 									<label for="form_employee">Date Of Assessment</label>
-									<input type="date" class="form-control form-control" id="defaultInput" name="tgl_ass">
+									<input type="date" class="form-control form-control" id="defaultInput" name="tgl_ass" value="<?php echo $peg->tgl_ass;?>">
 								</div>
 								<div class="card-action">
 									<button class="btn btn-success" style="margin-left: 1%">Save</button>

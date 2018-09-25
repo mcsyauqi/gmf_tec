@@ -14,12 +14,6 @@
 							<p>Training Compliance</p>
 						</a>
 					</li>
-					<li class="nav-item <?php if($page_now=='v_pegawai') echo 'active';?>">
-						<a href="<?php echo site_url('pegawai');?>" onclick="">
-							<i class="la la-group"></i>
-							<p>Employees</p>
-						</a>
-					</li>
 				</ul>
 			</div>
 		</div>

@@ -52,12 +52,6 @@
 							<p>Training Compliance</p>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a href="<?php echo site_url('pegawai');?>">
-							<i class="la la-group"></i>
-							<p>Employees</p>
-						</a>
-					</li>
 				</ul>
 			</div>
 		</div>
