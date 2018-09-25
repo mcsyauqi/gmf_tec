@@ -121,6 +121,27 @@ include 'v_navbar_admin.php';
 								<label for="form_employee">Date Of Birth</label>
 								<input type="date" class="form-control form-control" id="defaultInput" name="tgl_lahir">
 							</div>
+							<div class="form-group">
+									<label for="form_employee">TOEIC</label>
+									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai TOEIC" name="TOEIC">
+								</div>
+								<div class="form-group">
+									<label for="defaultSelect">Assessment Level</label>
+									<select class="form-control form-control" id="defaultSelect" placeholder="Masukkan Level" name="ass_level">
+										<option></option>
+										<option>Manager</option>
+										<option>General Manager</option>
+										<option>Vice President</option>
+									</select>
+								</div>	
+								<div class="form-group">
+									<label for="form_employee">Assessment Value</label>
+									<input type="text" class="form-control form-control" id="defaultInput" placeholder="Masukkan Nilai Assessment" name="nilai_ass">
+								</div>
+								<div class="form-group">
+									<label for="form_employee">Date Of Assessment</label>
+									<input type="date" class="form-control form-control" id="defaultInput" name="tgl_ass">
+								</div>
 							<div class="card-action">
 								<button class="btn btn-success">Add</button>
 								<input type="button" class="btn btn-danger" value="Cancel" style="margin-right:10px" onclick="history.back();"/>

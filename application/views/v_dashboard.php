@@ -194,7 +194,7 @@ $sisa_training_comp=100-$training_comp;
        </div>
        <div class="col-7 d-flex align-items-center">
         <div class="numbers">
-         <p class="card-category" style="color: #ffffff">Total Workers</p>
+         <p class="card-category" style="color: #ffffff">Total Employees</p>
          <h4 class="card-title" style="color: #ffffff"><?php echo $total_peg." Orang"?></h4>
        </div>
      </div>
@@ -494,7 +494,7 @@ Highcharts.chart('container', {
 </div>
 <div class="col-md-6">
   <div class="card">
-    <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
+    <div class="card-header" style="background-color:#46a3cb; border-radius: 10px">
       <h4 class="card-title" style="color: white">Training Reminder</h4>
       <p class="card-category" style="color: white">Human Factor</p>
     </div>
@@ -527,9 +527,9 @@ Highcharts.chart('container', {
   </div>
   <div class="col-md-6">
     <div class="card">
-      <div class="card-header" style="background-color: #395c28; border-radius: 10px">
+      <div class="card-header" style="background-color: #c22250; border-radius: 10px">
         <h4 class="card-title" style="color: white">Training Reminder</h4>
-        <p class="card-category" style="color: white">CASR</p>
+        <p class="card-category" style="color: white">Regulation Part 145 + Part M</p>
       </div>
       <div class="card-body" style="height: 260px; overflow-y: scroll;">
         <table class="table table-head table-striped table-hover"  >
