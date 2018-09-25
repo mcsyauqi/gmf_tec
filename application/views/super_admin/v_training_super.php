@@ -36,8 +36,10 @@ $total_peg = mysqli_num_rows($peg);
 				<div class="col-md-12" style="max-width: 100%; width: auto;">
 					<div class="card">
 						<div class="card-header">
-								<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/print_pegawai');?>">
-								<button class="btn btn-info">Export as PDF</button></a>
+							<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/print_peg_excel');?>">
+								<button class="btn btn-info">Export as Excel</button></a>
+							<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/print_pegawai');?>">
+								<button class="btn btn-info" style="margin-right: 2%">Export as PDF</button></a>
 						</div>
 						<div class="container" style="overflow-x: scroll;">
 							<table class="table table-striped table-bordered data" style="width: 175%" rules="row" >

@@ -20,7 +20,7 @@ function checkDelete(){
 								<button class="btn btn-info">Add Employee</button></a>
 							</div>
 							<div class="container" style="overflow-x: auto;">
-								<table class="table table-striped table-bordered data" style="width: 125%;">
+								<table class="table table-striped table-bordered data" style="width: 135%;">
 									<thead>
 										<tr>			
 											<th style="text-align: center">No. Peg</th>
@@ -31,8 +31,8 @@ function checkDelete(){
 											<th style="text-align: center">Education</th>
 											<th style="text-align: center">TOEIC</th>
 											<th style="text-align: center">Assessment Level</th>
-											<th style="text-align: center">Nilai Assessment</th>
-											<th style="text-align: center">Tanggal Assessment</th>
+											<th style="text-align: center; width: 4%">Assessment Value</th>
+											<th style="text-align: center">Date of Assessment</th>
 											<th style="text-align: center">Edit</th>
 											<th style="text-align: center">Delete</th>
 										</tr>
