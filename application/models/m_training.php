@@ -61,5 +61,15 @@ class M_training extends CI_Model{
 		->order_by($tra,'ASC')
 		->get();
 	}
+
+	public function getSpesifik($name,$unit){
+		return $this->db->select('*')->from('training')->join('pegawai', 'pegawai.no_peg=training.no_peg')->like('nama_peg',$name)->where('training.unit', $unit)
+		->get();
+	}
+
+	public function getNoUnit($name,$unit){
+		return $this->db->select('*')->from('training')->join('pegawai', 'pegawai.no_peg=training.no_peg')->like('nama_peg',$name)->like('training.unit', $unit)
+		->get();
+	}
 	
 }

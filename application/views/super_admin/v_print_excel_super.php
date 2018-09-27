@@ -34,49 +34,49 @@ $total_peg = mysqli_num_rows($peg);
 				<div class="card-title">Filter Data</div>
 			</div>
 			<div class="card-body">
+				<form method="post" action="<?php echo site_url('super_admin/pegawai_super/lap_peg_excel')?>">
 				<div class="form-group">
 					<label for="squareInput">Nama</label>
-					<input type="text" class="form-control input-square" id="squareInput" placeholder="Masukkan Nama Pegawai">
+					<input type="text" class="form-control input-square" name="name" id="squareInput" placeholder="Masukkan Nama Pegawai">
 				</div>
 				<div class="form-group">
 					<label for="defaultSelect">Unit</label>
 					<select class="form-control form-control" id="defaultSelect" name="unit" >
-						<option><?php echo $peg->unit;?></option>
-						<option></option>
-						<option>JKTTE</option>
-						<option>JKTTEA</option>
-						<option>JKTTEC</option>
-						<option>JKTTED</option>
-						<option>JKTTEJ</option>
-						<option>JKTTEL</option>
-						<option>JKTTEN</option>
-						<option>JKTTEQ</option>
-						<option>JKTTER</option>
-						<option>JKTTEX</option>
-						<option>JKTTEZ</option>
-						<option>TEA-1</option>
-						<option>TEA-2</option>
-						<option>TEA-3</option>
-						<option>TEA-4</option>
-						<option>TEC-1</option>
-						<option>TED-1</option>
-						<option>TED-2</option>
-						<option>TED-3</option>
-						<option>TED-4</option>
-						<option>TED-5</option>
-						<option>TEL-1</option>
-						<option>TEL-2</option>
-						<option>TER-1</option>
-						<option>TER-2</option>
-						<option>TER-3</option>
-						<option>TER-4</option>
-						<option>TER-5</option>
+						<option value="">     </option>
+						<option value="TE">TE</option>
+						<option value="TEA">TEA</option>
+						<option value="TEC">TEC</option>
+						<option value="TED">TED</option>
+						<option value="TEL">TEL</option>
+						<option value="TEN">TEN</option>
+						<option value="TEQ">TEQ</option>
+						<option value="TER">TER</option>
+						<option value="TEX">TEX</option>
+						<option value="TEZ">TEZ</option>
+						<option value="TEA-1">TEA-1</option>
+						<option value="TEA-2">TEA-2</option>
+						<option value="TEA-3">TEA-3</option>
+						<option value="TEA-4">TEA-4</option>
+						<option value="TEC-1">TEC-1</option>
+						<option value="TED-1">TED-1</option>
+						<option value="TED-2">TED-2</option>
+						<option value="TED-3">TED-3</option>
+						<option value="TED-4">TED-4</option>
+						<option value="TED-5">TED-5</option>
+						<option value="TEL-1">TEL-1</option>
+						<option value="TEL-2">TEL-2</option>
+						<option value="TER-1">TER-1</option>
+						<option value="TER-2">TER-2</option>
+						<option value="TER-3">TER-3</option>
+						<option value="TER-4">TER-4</option>
+						<option value="TER-5">TER-5</option>
 					</select>
 					<div class="card-action">
-						<button class="btn btn-success">Submit</button>
+						<button type="submit" class="btn btn-success">Submit</button>
 						<button class="btn btn-danger" style="margin-right: 2%">Cancel</button>
-						<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/lap_peg_excel');?>" class="btn btn-primary" style="margin-right: 61%;">Export</a>
+						<a id="non_print" href="<?php echo site_url('super_admin/pegawai_super/ex_peg_excel/'.$link);?>" class="btn btn-primary" style="margin-right: 61%;">Export</a>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -103,7 +103,7 @@ $total_peg = mysqli_num_rows($peg);
 						<th style="text-align: center; width: 7%">Basic Eng.</th>
 						<th style="text-align: center; width: 7%">Cont. Air</th>
 						<th style="text-align: center; width: 7%">Type Rating</th>
-						
+
 					</tr>
 				</thead>
 				<tbody>
@@ -112,7 +112,7 @@ $total_peg = mysqli_num_rows($peg);
 					{
 
 						$no_peg = $train->no_peg;
-						
+
 						?>
 						<tr>
 							<td><?php echo $train->no_peg;?></td>
@@ -134,7 +134,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($interval->days<=60 && $cek >= 0) { ?>
 									<td ><span class="tipe3"><?php $done_bener = strtotime($train->done_human); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -176,7 +176,7 @@ $total_peg = mysqli_num_rows($peg);
 
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($interval->days<=60 && $cek >= 0) { ?>
 									<td ><span class="tipe3"><?php $done_bener = strtotime($train->done_cas); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -212,7 +212,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_fts); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -243,7 +243,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_sms); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -274,7 +274,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_ewis); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -305,7 +305,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_module); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -336,7 +336,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_gqs); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -367,7 +367,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_batk); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -398,7 +398,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_basic); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -429,7 +429,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td><span class="tipe1"><?php $done_bener = strtotime($train->done_cont); ?>
 									<?php echo date("d-M-Y",$done_bener);?></span></td> 
@@ -460,7 +460,7 @@ $total_peg = mysqli_num_rows($peg);
 							?>
 
 							<?php if ($done_bener!=0000-00-00) { ?>
-								
+
 								<?php if ($cek >= 0) { ?>
 									<td style="align-content: center;"><span class="tipe1">
 										<?php echo $train->stat_typer1;?></span></td> 
@@ -555,9 +555,9 @@ $total_peg = mysqli_num_rows($peg);
 					</tbody>
 				</table>
 			</div>
-			
+
 		</div>
-		
+
 		<script src="<?php echo base_url();?>assets/js/core/jquery.3.2.1.min.js"></script>
 		<script src="<?php echo base_url();?>assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 		<script src="<?php echo base_url();?>assets/js/core/popper.min.js"></script>

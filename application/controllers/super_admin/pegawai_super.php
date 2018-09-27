@@ -127,16 +127,29 @@ class Pegawai_super extends CI_Controller {
 
 	public function lap_peg_excel()
 	{
+		$name = $this->input->post('name');
+		$unit = $this->input->post('unit');
+		$data['link'] = $name.'/'.$unit;
 		$data['title'] = "Laporan Excel";
-		$data['training'] = $this->m_training->getAll('training');
-		$this->load->view('super_admin/v_lap_excel',$data);
+		if (!$unit) {
+			$data['training'] = $this->m_training->getNoUnit($name,$unit);
+		} else {
+		$data['training'] = $this->m_training->getSpesifik($name,$unit);
+		}
+		$this->load->view('super_admin/v_print_excel_super',$data);
 	}
 
-	public function print_peg_excel()
+	public function ex_peg_excel()
 	{
+		$name = $this->uri->segment(4);
+		$unit = $this->uri->segment(5);
+		if (!$unit) {
+			$unit = $name;
+			$name = "";
+		}
 		$data['title'] = "Laporan Excel";
-		$data['training'] = $this->m_training->getAll('training');
-		$this->load->view('super_admin/v_print_excel_super',$data);
+		$data['training'] = $this->m_training->getSpesifik($name,$unit);
+		$this->load->view('super_admin/v_lap_excel',$data);
 	}
 }
 
