@@ -1,8 +1,7 @@
 <?php 
 $page_now="v_training_admin";
 include 'v_navbar_admin.php';
-
-$connect = mysqli_connect('localhost','root','','db_gmf');
+include 'v_koneksi_admin.php';
 $peg = mysqli_query($connect, "SELECT * from pegawai");
 $total_peg = mysqli_num_rows($peg);
 ?>

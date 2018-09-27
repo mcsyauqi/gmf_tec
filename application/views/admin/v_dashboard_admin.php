@@ -1,8 +1,7 @@
 <?php
 $page_now="v_dashboard_admin";
 include 'v_navbar_admin.php';
-
-$connect = mysqli_connect('localhost','root','','db_gmf');
+include 'v_koneksi_admin.php';
 
 //data total pekerja
 $peg = mysqli_query($connect, "SELECT * from pegawai");
@@ -15,12 +14,15 @@ $min=200;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal  = date_create($array_data['tgl_lahir']);
-  $usia  = date_diff($awal, $akhir);
-  if ($max<$usia->y) {
-    $max=$usia->y;
+  $selisih = round(($akhir->format('U') - $awal->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $usia = number_format($tahun,0);
+ /* $usia  = date_diff($awal,$akhir);*/
+  if ($max<$usia) {
+    $max=$usia;
   }
-  if ($min>$usia->y) {
-    $min=$usia->y;
+  if ($min>$usia) {
+    $min=$usia;
   }
 }
 
@@ -32,12 +34,15 @@ $min_mka=200;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal_kerja  = date_create($array_data['tgl_masuk']);
-  $lama_kerja  = date_diff($awal_kerja, $akhir);
-  if ($max_mka<$lama_kerja->y) {
-    $max_mka=$lama_kerja->y;
+  $selisih = round(($akhir->format('U') - $awal_kerja->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $lama_kerja = number_format($tahun,0);
+  /*$lama_kerja  = date_diff($awal_kerja, $akhir);*/
+  if ($max_mka<$lama_kerja) {
+    $max_mka=$lama_kerja;
   }
-  if ($min_mka>$lama_kerja->y) {
-    $min_mka=$lama_kerja->y;
+  if ($min_mka>$lama_kerja) {
+    $min_mka=$lama_kerja;
   }
 }
 
@@ -99,12 +104,15 @@ $masa21=0;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal_kerja  = date_create($array_data['tgl_masuk']);
-  $lama_kerja  = date_diff($awal_kerja, $akhir);
-  if ($lama_kerja->y>=0 && $lama_kerja->y <=5) {
+  $selisih = round(($akhir->format('U') - $awal_kerja->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $lama_kerja = number_format($tahun,0);
+ /* $lama_kerja  = date_diff($awal_kerja, $akhir);*/
+  if ($lama_kerja>=0 && $lama_kerja <=5) {
     $masa0++;
-  } elseif ($lama_kerja->y>5 && $lama_kerja->y <=10) {
+  } elseif ($lama_kerja>5 && $lama_kerja <=10) {
     $masa6++;
-  } elseif ($lama_kerja->y>11 && $lama_kerja->y <=20) {
+  } elseif ($lama_kerja>11 && $lama_kerja <=20) {
     $masa11++;
   } else
   $masa21++;
@@ -194,7 +202,7 @@ $sisa_training_comp=100-$training_comp;
        </div>
        <div class="col-7 d-flex align-items-center">
         <div class="numbers">
-         <p class="card-category" style="color: #ffffff">Total Workers</p>
+         <p class="card-category" style="color: #ffffff">Total Employees</p>
          <h4 class="card-title" style="color: #ffffff"><?php echo $total_peg." Orang"?></h4>
        </div>
      </div>
@@ -494,7 +502,7 @@ Highcharts.chart('container', {
 </div>
 <div class="col-md-6">
   <div class="card">
-    <div class="card-header" style="background-color:#2a5c58; border-radius: 10px">
+    <div class="card-header" style="background-color:#46a3cb; border-radius: 10px">
       <h4 class="card-title" style="color: white">Training Reminder</h4>
       <p class="card-category" style="color: white">Human Factor</p>
     </div>
@@ -527,9 +535,9 @@ Highcharts.chart('container', {
   </div>
   <div class="col-md-6">
     <div class="card">
-      <div class="card-header" style="background-color: #395c28; border-radius: 10px">
+      <div class="card-header" style="background-color: #c22250; border-radius: 10px">
         <h4 class="card-title" style="color: white">Training Reminder</h4>
-        <p class="card-category" style="color: white">CASR</p>
+        <p class="card-category" style="color: white">Regulation Part 145 + Part M</p>
       </div>
       <div class="card-body" style="height: 260px; overflow-y: scroll;">
         <table class="table table-head table-striped table-hover"  >

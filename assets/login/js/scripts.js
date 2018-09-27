@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("assets/login/img/backgrounds/1.jpg");
+    $.backstretch("/app_reliability/gmf_tec/assets/img/back.jpg");
     
     /*
         Form validation

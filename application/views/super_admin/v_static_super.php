@@ -52,7 +52,7 @@
 								</span>
 							</a>
 							<ul class="dropdown-menu dropdown-user">
-								<a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-power-off"></i> Logout</a>
+								<a class="dropdown-item" href="<?php echo site_url('logout')?>"><i class="fa fa-power-off"></i> Logout</a>
 							</ul>
 							<!-- /.dropdown-user -->
 						</li>

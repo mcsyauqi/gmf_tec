@@ -30,7 +30,7 @@
 				<div class="container-fluid">
 					<form >
 					</form>					
-					<a href="<?php echo base_url();?>login" class="btn btn-info" style="color: #FFFFFF; background: #222d32; margin-top: 5px">Login
+					<a href="<?php echo site_url();?>login" class="btn btn-info" style="color: #FFFFFF; background: #222d32; margin-top: 5px">Login
 					</a>
 				</div>
 			</nav>

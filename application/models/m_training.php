@@ -1,5 +1,4 @@
 <?php
-$connect = mysqli_connect('localhost','root','','db_gmf');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_training extends CI_Model{

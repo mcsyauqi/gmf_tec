@@ -1,6 +1,6 @@
 <?php
 $page_now="v_print_table_super";
-$connect = mysqli_connect('localhost','root','','db_gmf');
+include 'v_koneksi_super.php';
 $peg = mysqli_query($connect, "SELECT * from pegawai");
 $total_peg = mysqli_num_rows($peg);
 ?>

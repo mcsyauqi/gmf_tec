@@ -1,8 +1,7 @@
 <?php
 $page_now="v_dashboard";
 include 'v_navbar.php';
-
-$connect = mysqli_connect('localhost','root','','db_gmf');
+include 'v_koneksi.php';
 
 //data total pekerja
 $peg = mysqli_query($connect, "SELECT * from pegawai");
@@ -15,12 +14,15 @@ $min=200;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal  = date_create($array_data['tgl_lahir']);
-  $usia  = date_diff($awal, $akhir);
-  if ($max<$usia->y) {
-    $max=$usia->y;
+  $selisih = round(($akhir->format('U') - $awal->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $usia = number_format($tahun,0);
+ /* $usia  = date_diff($awal,$akhir);*/
+  if ($max<$usia) {
+    $max=$usia;
   }
-  if ($min>$usia->y) {
-    $min=$usia->y;
+  if ($min>$usia) {
+    $min=$usia;
   }
 }
 
@@ -32,12 +34,15 @@ $min_mka=200;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal_kerja  = date_create($array_data['tgl_masuk']);
-  $lama_kerja  = date_diff($awal_kerja, $akhir);
-  if ($max_mka<$lama_kerja->y) {
-    $max_mka=$lama_kerja->y;
+  $selisih = round(($akhir->format('U') - $awal_kerja->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $lama_kerja = number_format($tahun,0);
+  /*$lama_kerja  = date_diff($awal_kerja, $akhir);*/
+  if ($max_mka<$lama_kerja) {
+    $max_mka=$lama_kerja;
   }
-  if ($min_mka>$lama_kerja->y) {
-    $min_mka=$lama_kerja->y;
+  if ($min_mka>$lama_kerja) {
+    $min_mka=$lama_kerja;
   }
 }
 
@@ -99,12 +104,15 @@ $masa21=0;
 for ($i=0; $i < $total_peg; $i++) { 
   $array_data = mysqli_fetch_array($peg);
   $awal_kerja  = date_create($array_data['tgl_masuk']);
-  $lama_kerja  = date_diff($awal_kerja, $akhir);
-  if ($lama_kerja->y>=0 && $lama_kerja->y <=5) {
+  $selisih = round(($akhir->format('U') - $awal_kerja->format('U')) / (60*60*24));
+  $tahun = $selisih/366;
+  $lama_kerja = number_format($tahun,0);
+ /* $lama_kerja  = date_diff($awal_kerja, $akhir);*/
+  if ($lama_kerja>=0 && $lama_kerja <=5) {
     $masa0++;
-  } elseif ($lama_kerja->y>5 && $lama_kerja->y <=10) {
+  } elseif ($lama_kerja>5 && $lama_kerja <=10) {
     $masa6++;
-  } elseif ($lama_kerja->y>11 && $lama_kerja->y <=20) {
+  } elseif ($lama_kerja>11 && $lama_kerja <=20) {
     $masa11++;
   } else
   $masa21++;

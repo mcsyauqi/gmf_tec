@@ -154,7 +154,7 @@ include 'v_navbar_super.php';
 								<div class="card-action">
 									<button class="btn btn-success" style="margin-left: 1%">Save</button>
 
-									<a href="<?php echo site_url('pegawai/pegawai_super')?>" class="btn btn-danger">Cancel</a>
+									<a href="<?php echo site_url('super_admin/pegawai_super')?>" class="btn btn-danger">Cancel</a>
 								</div>
 							</form>
 						</div>

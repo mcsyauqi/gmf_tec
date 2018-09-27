@@ -24,6 +24,17 @@ class Training_super extends CI_Controller {
 		
 	}
 
+	// public function cek_waktu()
+	// {
+	// 	date_default_timezone_set('Asia/Jakarta');
+	// 	$tgl_sekarang = date('Y-m-d');
+	// 	$id = $this->uri->segment(4);
+	// 	$data['training'] = $this->m_training->getAll($id);
+	// 	if ($tgl_sekarang!=) {
+	// 		# code...
+	// 	}
+	// }
+
 	public function update_training()
 	{
 		$connect = mysqli_connect('localhost','root','','db_gmf');
@@ -42,6 +53,20 @@ class Training_super extends CI_Controller {
 			'stat_typer1' => $this->input->post('stat_typer1'),
 		);
 		
+
+		// date_default_timezone_set('Asia/Jakarta');
+		// $tgl_sekarang = date('Y-m-d');
+		// $pattern = '/([^0-9]+)/';
+		// $sekarang = preg_replace($pattern,'',$tgl_sekarang);
+		// $due = preg_replace($pattern,'',$due_human);
+		// $cek = (int)$due - $sekarang; 
+
+		// if ($cek<0) {
+		// 	# code...
+		// } else {
+			
+		// }
+
 		$done_bener = strtotime($this->input->post('done_human'));
 		if ($done_bener!=0000-00-00) {
 			$due_human = date('Y-m-d', strtotime('+2 years', strtotime($this->input->post('done_human')))); 
